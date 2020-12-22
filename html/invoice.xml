@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<invoice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/home/sunbeam/Assignment/html/invoice.xsd">
+<billno>1</billno>
+<items>
+<item>Pizza</item>
+<item>Vaada Paw</item>
+<item>Misal</item>
+<item>Bhel</item>
+</items>
+<total>300</total>
+</invoice>

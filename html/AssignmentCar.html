@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Assignment</title>
+
+    <script>    
+        var counter = 50;
+        var countert = 60;
+        var refToQueue = null;
+        
+        function Start()
+        {
+           var startButton= document.getElementById("btnStart") ;
+           var stopButton= document.getElementById("btnStop") ;
+         
+           startButton.disabled = "disabled";
+           stopButton.disabled = null;
+
+           refToQueue= window.setInterval("Irritate()", 10);
+        }
+
+        function Stop()
+        {
+             window.clearInterval(refToQueue);
+             var startButton= document.getElementById("btnStart") ;
+             var stopButton= document.getElementById("btnStop") ;
+         
+             startButton.disabled = "disabled";
+             stopButton.disabled = "disabled";
+
+             var div2 = document.getElementById("myDiv2");
+             div2.style.opacity = 1;
+             div2.style.top=countert+"px";
+             div2.style.left=counter+"px";
+        }
+
+        function Irritate()
+        {
+            var span= document.getElementById("spanCounter");
+            counter = counter + 1;
+            span.innerText = counter;
+            var span= document.getElementById("spanCounter");
+            
+            span.innerText = countert;
+            var div= document.getElementById("myDiv");
+            if(counter<700)
+            {
+                if(counter<500)
+                {
+                    div.style.left = counter + "px";
+                }
+                else
+                {
+                    div.style.left = counter + "px";
+                    div.style.top = countert + "px";
+                    countert = countert + 1;
+                    
+                }
+            }
+            else{
+                div.style.opacity = 0;
+                window.Stop();
+            }
+        }
+        function Disturb()
+        {
+            alert("I am disturbing :)");
+        }
+
+        function play1()
+        {
+            
+        }
+    </script>
+</head>
+<body onload="play1()">
+
+        <audio controls autoplay><source src="gadiwalaSong.mp3" type="audio/mpeg"><p>If you can read this, your browser does not support the audio element.</p></audio>
+    <div id="myDiv" 
+         style=" height:135px; 
+            width: 360px; 
+            background-color: red;
+            position: absolute;
+            left:50px;
+            top:100px;
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);">  
+            <img src="car.jpeg"  alt="car image"> 
+    </div>
+
+    <div id="myDiv2" 
+         style=" height:150px; 
+            width: 500px; 
+            /* background-color: red;  */
+            position: absolute;
+            left:750px;
+            top:750px;
+            opacity: 0">
+            <img src="accident.jpeg" alt="accident">
+    </div>
+    <span id="spanCounter"></span><br>
+    <input type="button" id="btnStart" value="Start" onclick="Start()">
+    <input  disabled="disabled"  type="button" id="btnStop" value="Stop" onclick="Stop()">
+    <input type="button" id="btnDisturb" value="Disturb" onclick="Disturb()">
+    <div style="top: 235px; position: absolute">
+        <table border="1" style="top: 100px; width: 550px; height: 1px"  >
+            <tr>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>
+
+
+
+

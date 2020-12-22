@@ -1,0 +1,41 @@
+<!-- <app-home></app-home> -->
+
+
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+<ul class="nav navbar-nav">
+    <li class="active">
+        <a routerLink="/home">Home</a>
+    </li>
+    <li>
+        <a routerLink="/about">About Us</a>
+    </li>
+    <li>
+        <a routerLink="/contact">Contact Us</a>
+    </li>
+    <li *ngIf="!service.isLoggedIn()">
+        <a routerLink="/login">Login Here</a>
+    </li>
+    
+    <li *ngIf="service.isLoggedIn()">
+      <button type="button" (click)="Logout()" class="btn btn-large btn-block btn-success">Logout</button>
+        <!-- <a routerLink="/logout">Log out</a> -->
+    </li>
+</ul>
+</nav>
+
+
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

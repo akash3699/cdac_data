@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function CheckSupport()
+        {
+            if(typeof(JSON) == "object")
+            {
+               // alert("You are using DOM 2");
+            //    var jsonData = {"No":1,"Name": "Omkar", "City":"Kolhapur"  };
+            //    alert("So ja " + jsonData.Name);
+
+                var jsonData = [
+                                {"No":11,"Name": "Omkar", "City":"Kolhapur"  },
+                                {"No":12,"Name": "Ashwini", "City":"Nagar"  },
+                                {"No":13,"Name": "Girish", "City":"Jalgaon"  },
+                                {"No":14,"Name": "Shobhit", "City":"Lucknow"  },
+                                {"No":15,"Name": "Amol", "City":"Alibag"  }
+                ];
+
+                for(i=0;i<jsonData.length; i ++)
+                {
+                    alert(jsonData[i].Name );
+                }
+
+            }
+            else{
+                alert("pls upgrade");
+            }
+
+        }
+    </script>
+</head>
+<body onload="CheckSupport()">
+    
+</body>
+</html>

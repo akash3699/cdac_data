@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test Inputs</title>
+    <script>
+        function Validate()
+        {
+            var form = document.getElementById("registerForm");
+            debugger;
+            if(form.checkValidity())
+            {
+                form.submit();
+            }
+            else
+            {
+                var errors = "";
+                for(i=0; i < form.length; i ++)
+                {
+                    errors =errors +   form[i].validationMessage + "<br>";
+                } 
+                var div = document.getElementById("divForErrorMessages");
+                div.style.color = "Red";
+                div.innerHTML = errors;
+            }
+        }
+    </script> 
+
+</head>
+<body>
+    <form id="registerForm" 
+    action="SomeCodeOnServer.php" 
+    method="GET" 
+    style="text-align: -webkit-center; text-align: -moz-center">
+        <table border="1">
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" placeholder="e.g. Mahesh" required="required" name="Name"></td>
+                </tr>
+                <tr>
+                    <td>Age</td>
+                    <td>
+                            <input type="number" min="18" max="60" required="required" name="Age">
+                    </td>
+                </tr>
+                <tr>
+                    <td>EMail</td>
+                    <td>
+                            <input type="email" required="required" name="EMail">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td>
+                            <input type="password" name="Password">            
+                    </td>
+                </tr>
+                <tr>
+                    <td>Confirm Password</td>
+                    <td>
+                            <input type="password" name="ConfirmPassword">            
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                            <input type="submit" value="Register" name="btnRegister">            
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <input type="submit" value="Login" name="btnLogin">                 
+                    </td>
+                </tr>
+
+                    
+                <tr>
+                        <td colspan="2" style="text-align: center">
+                            <input type="button" value="I am Normal Button" name="btnNormal" onclick="Validate()">                 
+                        </td>
+                    </tr>
+        
+            </table>
+            <div id="divForErrorMessages">
+                
+            </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

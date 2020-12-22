@@ -1,0 +1,15 @@
+{
+  "name": "loggerbykarad",
+  "version": "1.1.0",
+  "description": "Logs on console",
+  "main": "logger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "karad",
+    "logger"
+  ],
+  "author": "Mahesh Panhale",
+  "license": "ISC"
+}

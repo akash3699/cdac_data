@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        // var data  =  document.getElementById("txtName").value;
+        // alert(data);
+        
+        
+        // jQuery(document).ready(SayHi);
+        
+        // function SayHi()
+        // {
+        //     debugger;
+        //     var data = jQuery("#txtName").val();
+        //     alert(data);
+        // }
+
+        debugger;
+        jQuery(document).ready(Initialize);
+
+        function Initialize(){
+            debugger;
+            jQuery("#btn").click(SayHi);
+            
+        }
+        
+        function SayHi()
+        {
+            debugger;
+            var data = jQuery("#txtName").val();
+            alert(data);
+        }
+
+    </script>
+</head>
+<body>  
+    <input type="text" id="txtName" value="ABC">
+    <input type="button"  id="btn" value="Click Me">
+
+</body>
+</html>
+
+
+

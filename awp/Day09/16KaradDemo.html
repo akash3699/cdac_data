@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>    
+        var counter = 0;
+        var refToQueue = null;
+        
+        function Start()
+        {
+           var startButton= document.getElementById("btnStart") ;
+           var stopButton= document.getElementById("btnStop") ;
+         
+           startButton.disabled = "disabled";
+           stopButton.disabled = null;
+           refToQueue= window.setInterval("Irritate()", 1000);
+
+        }
+
+        function Stop()
+        {
+             window.clearInterval(refToQueue);
+             var startButton= document.getElementById("btnStart") ;
+             var stopButton= document.getElementById("btnStop") ;
+         
+             startButton.disabled = null;
+             stopButton.disabled = "disabled";
+        }
+
+        function Irritate()
+        {
+            var span= document.getElementById("spanCounter");
+            counter = counter + 1;
+            span.innerText = counter;
+        }
+    </script>
+</head>
+<body>
+    <span id="spanCounter"></span><br>
+    <input type="button" id="btnStart" value="Start" onclick="Start()">
+
+
+    <input  disabled="disabled"  type="button" id="btnStop" value="Stop" onclick="Stop()">
+</body>
+</html>
+
+
+
+
+

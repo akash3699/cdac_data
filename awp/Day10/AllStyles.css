@@ -1,0 +1,14 @@
+div
+{
+    height:100px; 
+    width: 100px; 
+    background-color: yellow;
+}
+.YourStyle{
+    width:300px;
+    background-color:black 
+}
+.MyStyle{
+    height:50px;
+    background-color:green 
+}

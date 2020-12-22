@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .TabStyle
+        {
+            height: 100%;
+            width: 100%
+        }
+    </style>
+    <script src="jquery-1.8.3.min.js"></script>
+
+    <script>
+            var total = 0;
+            function ShowTotal()
+            {
+                $("#divTotal").html(total);
+            }
+
+            $("#btnPlus").live("click", function(){
+            debugger;
+             var oldQty = parseInt($($(this).parent().children()[1]).val());
+             var price = parseInt($(this).attr("ItemPrice"));
+             var Qty = oldQty + 1;
+             var subTotal = Qty * price;
+             total = total + price;
+             ShowTotal();
+             $($(this).parent().children()[1]).val(Qty);
+             $($(this).parent().parent().children()[3]).html(subTotal);
+            })
+
+            $("#btnMinus").live("click", function(){
+              debugger;
+             var oldQty = parseInt($($(this).parent().children()[1]).val());
+             var price = parseInt($(this).attr("ItemPrice"));
+             var Qty = oldQty - 1;
+
+                if(Qty <=0)
+                {
+                total = total - price;
+                $(this).parent().parent().remove();
+                }
+                else
+                {
+                var subTotal = Qty * price;
+                $($(this).parent().children()[1]).val(Qty);
+                $($(this).parent().parent().children()[3]).html(subTotal);
+                total = total - price;
+              }
+              ShowTotal();
+            })
+            $("#btnRemove").live("click",function(){
+                var subTotalToBeRemoved =  
+                    parseInt($($(this).parent().parent().children()[3]).html())
+                total = total - subTotalToBeRemoved;
+                ShowTotal();
+                $(this).parent().parent().remove();
+            });
+        debugger;
+            $("#btnAddToCart").live("click",function(){
+                debugger;
+
+                var billingrow= '<tr>' +
+                                    '<td>' + '1' + '</td>'+
+                                    '<td>' + $(this).attr("ItemName") + '</td>' +
+                                    '<td style="text-align: center;">'+
+                                        '<input type="button" ItemPrice="' +  $(this).attr("ItemPrice") +'" id="btnPlus"  value="+">'+
+                                        '<input type="text" style="width:40px" id="txtQty" value="1">'+
+                                        '<input type="button" ItemPrice="' +  $(this).attr("ItemPrice") +'" id="btnMinus" value="-">' +
+                                    '</td>'+
+                                    '<td>' + $(this).attr("ItemPrice") + '</td>'+
+                                    '<td><input type="button" id="btnRemove" value="X"></td>'+
+                                '</tr>';
+
+                $("#tabBill").append(billingrow);
+                total = total + parseInt($(this).attr("ItemPrice"));
+                ShowTotal();
+            });
+
+        $(document).ready(function(){
+            debugger;
+            $.ajax({
+                url: "FoodItems.json",
+                type:"GET",
+                contentType: "application/json",
+                success: function(data){
+                    debugger;
+                    for(i=0; i< data.length; i ++) 
+                    {
+                        var row =  '<tr>' +
+                                    '<td>' + data[i].SNo + '</td>' +
+                                    '<td>'+
+                                        '<img src="' + data[i].Photo+'" style="height: 100px; width:100px"><br>' + data[i].ItemName +
+                                    '</td>' + 
+                                    '<td>'+
+                                        data[i].Price + ' INR'+
+                                    '</td>'+
+                                    '<td>'+
+                                        '<input type="button" ItemName="' +  data[i].ItemName +'" id="btnAddToCart" ItemPrice="'+  data[i].Price +'" value="AddToCart">' + 
+                                    '</td>'+
+                                '</tr>';
+                    $("#tabItems").append(row);
+                    
+                  }
+
+                  ShowTotal();
+                   
+                },
+                error: function (err){
+                    debugger;
+                    alert("Something is wrong!")
+                }
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <br>    
+    <table class="TabStyle" border="1">
+        <tr>
+            <td>
+                <table id="tabItems" border="1" style="width:400px">
+                    <tr>
+                        <th>SNo</th>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Add to Cart</th>
+                    </tr>
+                   
+                </table>
+
+                
+            </td>
+            <td style="vertical-align: top;">
+                    <h3>Total <div id="divTotal"> </div> </h3>
+                    <table id="tabBill" border="1" style="width:100%">
+                            <tr>
+                                <th>SNo</th>
+                                <th>Item</th>
+                                <th>QTY</th>
+                                <th>Sub Totol</th>
+                                <th>Remove</th>
+                            </tr>
+                            
+                    </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

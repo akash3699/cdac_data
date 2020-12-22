@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    
+    <script>
+            function CheckHTML5Support()
+            {
+             var myCanvas=  document.getElementById("myCanvas");
+                if(typeof(myCanvas.getContext) == "function")
+                {
+                    alert("Wow HTMl 5 is supported!");
+                }
+                else
+                {
+                    alert("HTMl 5 is not supported! Pls Upgrade");
+                }
+            }
+    </script>
+</head>
+<body onload="CheckHTML5Support()">
+    <Mahesh>Some Data Here</Mahesh>
+    <br>
+    <canvas id="myCanvas" style="height:100px; width:100px; background-color: yellow">
+        Some Text In Canvas!
+    </canvas>
+</body>
+</html>

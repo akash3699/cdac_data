@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE invoice SYSTEM "/home/osboxes/Desktop/Karad/Invoice.dtd">
+<invoice>
+ <BillNo>123</BillNo>    
+    <Items>
+      <Item>Computer</Item>    
+      <Item>Mobile</Item>
+      <Item>Mouse</Item>
+    </Items>
+    <Total>50000</Total>
+    
+</invoice>

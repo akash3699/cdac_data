@@ -1,0 +1,20 @@
+
+<form role="form" #myForm="ngForm" (ngSubmit)="Login(myForm.value)">
+    <legend>Login Here</legend>
+
+    <div class="form-group">
+        <label for="name">User Name</label>
+        <input ngModel type="text" class="form-control" id="name" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="password">password</label>
+        <input ngModel type="text" class="form-control" id="password" name="password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+    <span>
+        {{message}}
+    </span>
+</form>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("#btn").click(function(){
+                // $("#div1").css("background-color", "red");
+                // $("#div1").css("height", "50px");
+                // $("#div1").css("width", "50px");
+
+                // $("#div1").css("background-color", "red")
+                //           .css("height", "50px")
+                //           .css("width", "50px");
+
+                // $("div").css("background-color", "red")
+                //           .css("height", "50px")
+                //           .css("width", "50px");
+
+                // $("div").css({
+                //               "background-color": "red",
+                //               "height": "50px",
+                //               "width": "50px"
+                //              });
+
+                //   var data = $("#div1").html() ;
+                //   alert(data);
+                //$("#div1").html("Yogesh") ;
+
+                // alert($("#div1").html()) ;
+                // alert($("#div2").html()) ;
+                // alert($("#div3").html()) ;
+
+                //alert($("div").html());-- This is problem
+
+                
+                // $("div").each(function(){
+                //     alert($(this).html());
+                // });
+
+
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button"  id="btn" value="Click Me">
+    <div id="div1" style="height: 100px; width:100px;background-color:yellow">
+        Mahesh
+    </div>
+    <br>
+    <div id="div2" style="height: 100px; width:100px;background-color:yellow">
+        Nilesh
+    </div>
+    <br>
+    <div id="div3" style="height: 100px; width:100px;background-color:yellow">
+        Rupesh
+    </div>
+    <br>
+</body>
+</html>

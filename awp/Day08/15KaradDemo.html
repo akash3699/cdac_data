@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+
+    <!-- <script src="MPValidation.js"></script> -->
+    <script src="MPValidation.min.js"></script>
+    <script>
+        function Validate()
+        {
+            debugger;
+            var IsNameEmpty =  ValidateEmpty("txtName","errSpanForName","Name is Required");
+            if(IsNameEmpty == false)
+            {
+                ValidateForTextOnly("txtName","errSpanForName","Name can not have numbers!");
+            }
+
+            var IsAgeEmpty = ValidateEmpty("txtAge","errSpanForAge","Age is Required");
+            if(IsAgeEmpty == false)
+            {
+                var IsItNumber =  ValidateForNumberOnly("txtAge","errSpanForAge","Age needs Numbers Only.");
+                if(IsItNumber == true)
+                {
+                    ValidateForRange("txtAge","errSpanForAge","Age is not in range!", 18, 60);
+                }
+            }
+
+            ValidateEmpty("txtEmail","errSpanForEMail","EMail is Required");
+        }
+       
+
+    </script>
+</head>
+<body>
+    <table style="width:400px">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="txtName"></td>
+            <td><span id="errSpanForName"></span></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="text" id="txtAge"></td>
+            <td><span id="errSpanForAge"></span></td>
+        </tr>
+        <tr>
+            <td>EMail</td>
+            <td><input type="text" id="txtEmail"></td>
+            <td><span id="errSpanForEMail"></span></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" id="txtPassword"></td>
+            <td><span id="errSpanForPassword"></span></td>
+        </tr>
+        <tr>
+            <td>Confirm</td>
+            <td><input type="password" id="txtConfirmPassword"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center">
+                <input type="button"  id="btnRegister" value="Register" onclick="Validate()">
+            </td>
+        </tr>
+    </table> 
+</body>
+</html>
+
+

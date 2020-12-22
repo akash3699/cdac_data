@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script>    
+        var counter = 0;
+        var refToQueue = null;
+        
+        function Start()
+        {
+           var startButton= document.getElementById("btnStart") ;
+           var stopButton= document.getElementById("btnStop") ;
+         
+           startButton.disabled = "disabled";
+           stopButton.disabled = null;
+
+           refToQueue= window.setInterval("Irritate()", 100);
+        }
+
+        function Stop()
+        {
+             window.clearInterval(refToQueue);
+             var startButton= document.getElementById("btnStart") ;
+             var stopButton= document.getElementById("btnStop") ;
+         
+             startButton.disabled = null;
+             stopButton.disabled = "disabled";
+
+             var div2 = document.getElementById("myDiv2");
+             div2.style.opacity = 1;
+        }
+
+        function Irritate()
+        {
+            var span= document.getElementById("spanCounter");
+            counter = counter + 1;
+            span.innerText = counter;
+            var div= document.getElementById("myDiv");
+            div.style.left = counter + "px";
+        }
+        function Disturb()
+        {
+            alert("I am disturbing :)");
+        }
+    </script>
+</head>
+<body>
+    <div id="myDiv" 
+         style=" height:100px; 
+            width: 100px; 
+            background-color: red;
+            position: absolute;
+            left:0px;
+            top:100px">   
+    </div>
+
+    <div id="myDiv2" 
+         style=" height:100px; 
+            width: 100px; 
+            background-color: yellow;
+            position: absolute;
+            left:300px;
+            top:100px;
+            opacity: 0">   
+    </div>
+    <span id="spanCounter"></span><br>
+    <input type="button" id="btnStart" value="Start" onclick="Start()">
+    <input  disabled="disabled"  type="button" id="btnStop" value="Stop" onclick="Stop()">
+    <input type="button" id="btnDisturb" value="Disturb" onclick="Disturb()">
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,5 @@
+<!ELEMENT invoice (BillNo, Items, Total)>
+<!ELEMENT BillNo (#PCDATA)>
+<!ELEMENT Items (Item+)>
+<!ELEMENT Item (#PCDATA)>
+<!ELEMENT Total (#PCDATA)>

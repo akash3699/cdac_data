@@ -1,0 +1,7 @@
+[
+    {"No":11,"Name": "Omkar", "City":"Kolhapur", "Photo" : "car.jpg"  },
+    {"No":12,"Name": "Ashwini", "City":"Nagar"  , "Photo" : "car.jpg"  },
+    {"No":13,"Name": "Girish", "City":"Jalgaon"  , "Photo" : "car.jpg"  },
+    {"No":14,"Name": "Shobhit", "City":"Lucknow"  , "Photo" : "car.jpg"  },
+    {"No":15,"Name": "Amol", "City":"Alibag"  , "Photo" : "car.jpg"  }
+]

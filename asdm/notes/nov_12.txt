@@ -1,0 +1,57 @@
+* to connect to the cloud ec2 instance
+  > ssh -i <pem file path> <username>@<public ip>
+  > ssh -i sunbeam-nv-1.pem ubuntu@3.86.24.77
+
+* initialise the environment
+  > sudo apt-get update
+
+- install mysql
+  > sudo apt-get install mysql-server mysql-client
+
+- configure the mysql
+  > SELECT user,authentication_string,plugin,host FROM mysql.user;
+  > ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+  > FLUSH PRIVILEGES;
+
+- install web server
+  > sudo apt-get install apache2
+
+- build the angular application
+  > ng build --prod
+
+- archive the dist directory contents 
+  
+- upload the angular application
+  > scp -i <pemfile> <file name> ubuntu@<ip>:<location>
+  > scp -i sunbeam-nv-1.pem dist/Archive.zip ubuntu@3.86.24.77:~/
+
+- copy the files to /var/www/html
+  - login to the cloud server (using ssh command: refer the above documentation to login)
+
+  > cd /var/www/html
+  > mv ~/Archive.zip .
+
+- unarchive the Archive.zip file
+  > sudo apt-get install unzip
+  > unzip Archive.zip
+
+- install nodejs
+  > sudo apt-get install nodejs
+
+- upload the express application
+  - archive the server code
+  - copy the code to the server
+    > scp -i sunbeam-nv-1.pem server.zip ubuntu@3.86.24.77:~/
+  - connect to the server using ssh
+    > cd ~/
+    > unzip server.zip
+    > cd server
+    > node server.js &
+
+
+
+
+
+
+
+

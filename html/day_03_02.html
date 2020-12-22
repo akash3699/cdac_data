@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+    function Validate()
+    {
+        debugger;
+        var IsNameEmpty = ValidateEmpty("txtname","errSpanForName","Name Is Required..");
+        if(IsNameEmpty == false)
+        {
+            ValidateForTextOnly("txtname","errSpanForName","Name Can not have numbers..");
+        }
+        var IsAgeEmpty = ValidateEmpty("txtAge","errSpanForAge","Age Is Required..");
+        if(IsAgeEmpty == false)
+        {
+           var IsItNumber = ValidateForNumberOnly("txtAge","errSpanForAge","Age needs numbers only..");
+           if(IsItNumber == true)
+           {
+               ValidateForRange("txtAge","errorSpanForAge","Age is not in range",18,60);
+           }
+        }
+
+        ValidateEmpty("txtEmail","errorSpanForEmail","Email is required..");
+    }
+
+    function ValidateEmpty(ctrlId,spanId,errMsg)
+    {
+        var isItEmpty = true;
+        var element = document.getElementById(ctrlId);
+        var errSpan = document.getElementById(spanId);
+
+        if(element.value == "")
+        {
+            errSpan.innerText=errMsg;
+            isItEmpty = true;
+        }
+        else{
+            errSpan.innerText ="";
+            isItEmpty = false;
+        }
+        return isItEmpty;
+    }
+
+    function ValidateForTextOnly(ctrlId,spanId,errMsg)
+    {
+        var element = document.getElementById(ctrlId);
+        var errSpan = document.getElementById(spanId);
+
+        if(isNaN(element.value))
+        {
+            errSpan.innerText = "";
+        }
+        else
+        {
+            errSpan.innerText = errMsg;
+        }
+    }
+
+    function ValidateForNumberOnly(ctrlId,spanId,errMsg)
+    {
+        var IsItNumber = false;
+        var element = document.getElementById(ctrlId);
+        var errSpan = document.getElementById(spanId);
+
+        if(isNaN(element.value))
+        {
+            errSpan.innerText=errMsg;
+            IsItNumber = false;
+        }
+        else
+        {
+            errSpan.innerText="";
+            IsItNumber = true;
+        }
+        return IsItNumber;
+    }
+
+    function ValidateForRange(ctrlId,spanId,errMsg,min,max)
+    {
+        debugger;
+        var element = document.getElementById(ctrlId);
+        var errSpan = document.getElementById(spanId);
+        var actualValue = parseInt(element.value);
+
+        if(actualValue < min || actualValue > max)
+        {
+            errSpan.innerText=errMsg;
+        }
+        else
+        {
+            errSpan.innerText = " ";
+        }
+
+    }
+
+    </script>
+</head>
+<body>
+    
+        <table style="align-content: center;margin-left:auto;margin-right:auto;" height="300px" width="300px">
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" id="txtName"></td>
+                    <td><span id="errSpanForName"></span></td>
+                </tr>
+            
+                <tr>
+                    <td>Age</td>
+                    <td><input type="number" id="txtAge"></td>
+                    <td><span id="errSpanForAge"></span></td>
+                </tr>
+            
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" id="txtEmail"></td>
+                    <td><span id="errorSpanForemail"></span></td>
+                </tr>
+            
+                <tr>
+                    <td>Password</td>
+                    <td><input type="password" id="txtPassword"></td>
+                    <td> <span id="errorSpanForPassword"></span> </td>
+                </tr>
+            
+                <tr>
+                    <td>Confirm</td>
+                    <td> <input type="password" id="txtConfirmPassword"> </td>
+                    <td></td>
+                </tr>
+            
+                <tr>
+                    <td colspan="3" style="text-align: center">
+                        <input type="button" id="btnRegister" value="Register" onclick="Validate()">
+                    </td>
+                </tr>
+            </table>
+
+</body>
+</html>

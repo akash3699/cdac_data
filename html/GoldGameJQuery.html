@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Gold Game By JQuery</title>
+   <script src="jquery-3.4.1.js"></script>
+   <script>
+
+        var counter;
+        var gold;
+        var spanAttempts;       
+
+        $(document).ready(function(){
+
+            counter=3;
+            $("#span_attempts").html(counter);
+            
+            var goldDiv = Math.floor(Math.random()*10);
+            gold=(goldDiv%9)+1;
+            debugger;
+            $("div").click(function(){
+                if(counter>0)
+                {
+                    if($(this).attr("Akash")==undefined || !$(this).attr("Akash")=="checked")
+                    {
+                        
+                        var goldi=$(this).attr("id");
+                        debugger;
+                        if(goldi==gold)
+                        {
+                            $(this).css("background-color","gold");
+                            $(this).html("Gold");
+                            alert("You Win !!!");
+
+                        }
+                        else
+                        {
+                            $(this).css({"background-color":"red"});
+                            $(this).unbind("click");
+                            $(this).attr("Akash","checked");
+                            counter=counter-1;
+                            $("#span_attempts").html(counter);
+                        }
+                    }
+                   
+                }
+                else
+                {
+                    
+                    alert("You Lost!!!");
+                    window.f1();
+                }
+                
+            });
+        });
+   function f1()
+   {
+    $("div").each(function(){
+        $(this).unbind("click");
+    });
+   }
+   </script>
+</head>
+<body>
+    <center>
+    <table>
+        <tr>
+            <td><div id="1" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div id="2" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div id="3" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+        </tr>
+        <tr>
+            <td><div id="4" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div id="5" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div id="6" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+        </tr>
+        <tr>
+            <td><div id="7" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div id="8" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div id="9" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+        </tr>
+        <tr>
+            <td style="text-align: center" ><input id="refresh" onclick="window.location.reload();" value="refresh" type="button"></td>
+            <td style="text-align: center"colspan="2">No of attempts:<span id="span_attempts" ></span></td>
+
+        </tr>
+        
+    </table>
+</center>
+</body>
+</html>

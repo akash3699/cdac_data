@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Demo</title>
+    <script src="jquery-3.4.1.js"></script>
+    <style>
+    .Mobile
+    {
+        height: 100px;
+        width: 50px;
+        background-color: red;
+
+    }
+
+    .Desktop
+    {
+        height: 100px;
+        width: 100px;
+        background-color: aqua;
+
+    }
+    </style>
+
+    <script>
+        $(document).ready(function(){
+
+            $("#btn").click(function(){
+                $("#Div1").toggleClass("Desktop");
+            });
+
+
+        })
+        
+    
+    </script>
+</head>
+<body>
+    <div id="Div1" class="Desktop Mobile">
+
+    </div>
+    <input type="button" value="Click Me" id="btn">
+    
+</body>
+</html>

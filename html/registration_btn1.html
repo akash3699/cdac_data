@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration By button</title>
+    <script>
+        function Validate()
+        {
+            debugger;
+            
+            var form1=document.getElementById("registerForm");
+            //form1.submit();
+            // if(form.checkValidity())
+            // {
+            //     form.submit();
+            // }
+            // else
+            // {
+            //     var errors="";
+            //     for(i=0;i<form.length;i++)
+            //     {
+            //         errors =errors +   form[i].validationMessage + "<br>";
+            //     }
+            //     var div = document.getElementById("divForErrorMessages");
+            //     div.style.color = "Red";
+            //     div.innerHTML = errors;
+            // }
+        }
+    </script>
+</head>
+<body>
+
+    <form id="registerForm" action="someaction.php" method="POST" style="text-align: -webkit-center">
+        <table >
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" required="required" name="Name"></td><br>
+                </tr>
+                <tr>
+                    <td>Age:</td>
+                    <td><input type="number" required="required"  min="18" max="60" name="Age"></td><br>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input type="email" required="required" name="Email"></td><br>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" required="required" name="Password"></td><br>
+                </tr>
+                
+                <tr>
+                    <td>Confirm Password:</td>
+                    <td><input type="password" required="required" name="ConfirmPassword"></td><br>
+                </tr>
+        
+                <tr style="text-align: center"><td colspan="2"><input id="btn1" type="submit" name="BTNsubmit" value="BTNsubmit"></td>
+                </tr>
+        
+                <tr style="text-align: center">
+                    <td colspan="2"><input type="button"id="btn2" name="btnRegister" onclick="Validate()" value="Normal button"></td>
+                </tr>
+        
+        
+            </table>
+            <div id="divForErrorMessages">
+                
+                </div>
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("#btn").click(function(){
+                $("tr:even").css("background-color", "red");    
+                $("tr:odd").css("background-color", "blue");    
+            });
+            
+            $("tr").mouseover(function(){
+                $(this).css("background-color", "pink");
+            });
+            $("tr").mouseout(function(){
+                $(this).css("background-color", "white");
+            });
+
+            $("tr").click(function(){
+
+                if($(this).attr("IsThisRowSelectedByAnybody") == undefined || $(this).attr("IsThisRowSelectedByAnybody") == "undefined" )
+                {
+                    $(this).css("background-color", "green");
+                    $(this).attr("IsThisRowSelectedByAnybody", "yes");
+                    $(this).unbind("mouseover mouseout");
+                }
+                else
+                {
+                    $(this).css("background-color", "white");
+                    $(this).attr("IsThisRowSelectedByAnybody", "undefined");
+                    $(this).bind("mouseover",function()
+                    {
+                            $(this).css("background-color", "pink");
+                    });
+
+                    $(this).bind("mouseout",function()
+                    {
+                            $(this).css("background-color", "white");
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- <input type="text" id="mytextbox" value="ABC"> -->
+    <input type="button"  id="btn" value="Click Me">
+    <br>
+    <table border="1" style="height: 300px; width: 100%">
+        <tr>
+            <td>1</td>
+            <td>ABC</td>
+            <td>Pune</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>ABC</td>
+            <td>Pune</td>
+        </tr>
+        <tr>
+                <td>1</td>
+                <td>ABC</td>
+                <td>Pune</td>
+            </tr>
+            <tr>
+                    <td>1</td>
+                    <td>ABC</td>
+                    <td>Pune</td>
+                </tr>
+                <tr>
+                        <td>1</td>
+                        <td>ABC</td>
+                        <td>Pune</td>
+                    </tr>
+                    <tr>
+                            <td>1</td>
+                            <td>ABC</td>
+                            <td>Pune</td>
+                        </tr>
+                        <tr>
+                                <td>1</td>
+                                <td>ABC</td>
+                                <td>Pune</td>
+                            </tr>
+                            <tr>
+                                    <td>1</td>
+                                    <td>ABC</td>
+                                    <td>Pune</td>
+                                </tr>
+                                <tr>
+                                        <td>1</td>
+                                        <td>ABC</td>
+                                        <td>Pune</td>
+                                    </tr>
+                                    <tr>
+                                            <td>1</td>
+                                            <td>ABC</td>
+                                            <td>Pune</td>
+                                        </tr>
+                                        <tr>
+                                                <td>1</td>
+                                                <td>ABC</td>
+                                                <td>Pune</td>
+                                            </tr>
+                                            <tr>
+                                                    <td>1</td>
+                                                    <td>ABC</td>
+                                                    <td>Pune</td>
+                                                </tr>
+    </table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

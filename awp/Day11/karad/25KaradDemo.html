@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .A
+        {
+            height: 50px; 
+            width:200px;
+            background-color:yellow;
+        }
+
+        .B
+        {
+            height: 50px; 
+            width:200px;
+            background-color:green;
+        }
+    </style>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function (){
+
+            $("#btn").click(function(){
+                //$("#div1").css("background-color", "pink");     
+                // $("div").css("background-color", "pink");     
+                //$(".A").css("background-color", "pink");     
+               // $("div.A").css("background-color", "pink");     
+               
+            });
+
+            // $("#div1").click(function(){
+            //    $(this).css("background-color", "pink");     
+            // });
+
+            // $("div").click(function(){
+            //    $(this).css("background-color", "pink");     
+            // });
+
+            //   $("div").mouseover(function(){
+            //    $(this).css("background-color", "pink");     
+            //  });
+
+            // $("div").mouseout(function(){
+            //    $(this).css("background-color", "black");     
+            //  });
+
+        });
+    </script>
+</head>
+<body>
+    <input type="button"  id="btn" value="Click Me">
+    <div id="div1" class="A">
+        Mahesh
+    </div>
+    <br>
+    <div id="div22" class="B">
+        Nirmesh
+    </div>
+    <br>
+    <div id="div2" class="A">
+        Nilesh
+    </div>
+    <br>
+    <div id="div3" class="A">
+        Rupesh
+    </div>
+    <br>
+
+    <input id="txtInput" type="text" class="A" value="Jaydeep">
+          
+    <br>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+    function FindMe()
+    {
+        debugger;
+        navigator.geolocation.getCurrentPosition(OnSuccess, OnError)   
+    }
+
+    function OnSuccess(result)
+    {
+        debugger;
+        var lat = document.getElementById("txtLat");
+        var lon = document.getElementById("txtLon");
+        lat.value = result.coords.latitude;
+        lon.value = result.coords.longitude;
+    }
+    function OnError(someError)
+    {
+        alert("Something wrong!");
+        alert("Details " + someError.message);
+        debugger;
+    }
+    </script>
+</head>
+<body>
+    Latitude<input type="text" id="txtLat"><br>
+    Longitude<input type="text" id="txtLon">
+    <input type="button"  id="btn" value="Get Location" onclick="FindMe()">
+</body>
+</html>

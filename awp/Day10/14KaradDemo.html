@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        function Validate()
+        {
+            debugger;
+            var IsNameEmpty =  ValidateEmpty("txtName","errSpanForName","Name is Required");
+            if(IsNameEmpty == false)
+            {
+                ValidateForTextOnly("txtName","errSpanForName","Name can not have numbers!");
+            }
+
+            var IsAgeEmpty = ValidateEmpty("txtAge","errSpanForAge","Age is Required");
+            if(IsAgeEmpty == false)
+            {
+                var IsItNumber =  ValidateForNumberOnly("txtAge","errSpanForAge","Age needs Numbers Only.");
+                if(IsItNumber == true)
+                {
+                    ValidateForRange("txtAge","errSpanForAge","Age is not in range!", 18, 60);
+                }
+            }
+
+            ValidateEmpty("txtEmail","errSpanForEMail","EMail is Required");
+        }
+        function  ValidateEmpty(CtrlID,SpanID,ErrMsg)
+        {
+            var isItEmpty = true;
+            var element = 
+                document.getElementById(CtrlID);
+            var errspan = 
+                document.getElementById(SpanID);
+
+            if(element.value == "")
+            {
+                  errspan.innerText = ErrMsg;  
+                  isItEmpty = true;
+            }
+            else
+            {
+                errspan.innerText = "";  
+                isItEmpty = false;
+            }
+            return isItEmpty;
+        }
+        function ValidateForTextOnly(CtrlID, SpanID,ErrMsg)
+        {
+            var element = 
+                document.getElementById(CtrlID);
+            var errspan = 
+                document.getElementById(SpanID);
+
+            if(isNaN(element.value))
+            {
+                errspan.innerText = "";
+            }
+            else{
+                errspan.innerText = ErrMsg;
+            }
+        }
+
+        function ValidateForNumberOnly(CtrlID, SpanID,ErrMsg)
+        {
+            var isItNumber = false;
+
+            var element = document.getElementById(CtrlID);
+            var errspan = document.getElementById(SpanID);
+
+            if(isNaN(element.value))
+            {
+                errspan.innerText = ErrMsg;
+                isItNumber = false; 
+            }
+            else{
+                errspan.innerText = "";
+                isItNumber = true   ;
+
+            }
+            return isItNumber;
+        }
+
+    function ValidateForRange(CtrlID, SpanID,ErrMsg,Min, Max)
+    {
+        debugger;
+        var element = document.getElementById(CtrlID);
+        var errspan = document.getElementById(SpanID);
+        var actualValue =  parseInt(element.value);
+        if(actualValue < Min || actualValue >Max )
+        {
+            errspan.innerText = ErrMsg;
+        }
+        else{
+            errspan.innerText = "";
+        }
+    }
+
+
+    </script>
+</head>
+<body>
+    <table style="width:400px">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="txtName"></td>
+            <td><span id="errSpanForName"></span></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="text" id="txtAge"></td>
+            <td><span id="errSpanForAge"></span></td>
+        </tr>
+        <tr>
+            <td>EMail</td>
+            <td><input type="text" id="txtEmail"></td>
+            <td><span id="errSpanForEMail"></span></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" id="txtPassword"></td>
+            <td><span id="errSpanForPassword"></span></td>
+        </tr>
+        <tr>
+            <td>Confirm</td>
+            <td><input type="password" id="txtConfirmPassword"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center">
+                <input type="button"  id="btnRegister" value="Register" onclick="Validate()">
+            </td>
+        </tr>
+    </table> 
+</body>
+</html>
+
+

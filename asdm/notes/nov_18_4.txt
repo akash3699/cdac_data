@@ -1,0 +1,62 @@
+
+* data
+  - meaningless -> raw
+  - e.g.
+ 
+    Person1, 40, person1@test.com, pune
+
+
+* information
+  - meaningful
+  - formatting syntax
+    - XML
+
+      <person>
+	<name>person1</name>
+	<age>40</age>
+	<address>Pune</address>
+	<email>person1@test.com</email>
+      </person>
+
+    
+    - JSON
+      - JS object notation
+      - type
+        - object
+          - collection of key-value pairs
+          - uses {}
+
+     	    {
+        	 "name": "person1",
+        	 "age": 40,
+       	  	 "address": "pune",
+         	 "email": "person1@test.com"
+      	    }
+
+        - array 
+          - collection of objects
+          - uses []
+
+            [
+		{ "name": "person1", "age": 30 },
+		{ "name": "person2", "age": 40 }
+	    ]
+
+
+
+
+* response
+- status code
+  - types
+    - 1xx: informational or debugging messages
+    - 2xx: success
+    - 3xx: redirection/migration
+    - 4xx: client error
+    - 5xx: server error
+
+- content-type
+- content-size
+
+
+
+

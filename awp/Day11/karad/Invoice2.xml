@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<invoice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                 xsi:noNamespaceSchemaLocation="/home/osboxes/Desktop/Karad/Invoice.xsd">
+ <BillNo>123</BillNo>    
+    <Items>
+      <Item>Computer</Item>    
+      
+    </Items>
+    <Total>50000</Total>
+    
+</invoice>

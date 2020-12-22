@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("#btn").click(function(){
+                $("#mytable").append( "<tr><td>1</td><td>ABC</td><td><input type='button' empName='ABC' id='btnDynamic' value='I am dynamic'></td></tr>");
+            });
+        });
+    </script>
+</head>
+<body>
+     <input type="button"  id="btn" value="Click Me">
+    <br>
+    <table id="mytable" border="1" style="height: 300px; width: 100%">
+            
+    </table>
+</body>
+</html>

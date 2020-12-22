@@ -1,0 +1,6 @@
+[
+    {"foodItem":"Pizza","foodPrice":100,"photo":"pizza.jpeg"},
+    {"foodItem":"Vadapaw","foodPrice":10,"photo":"vadapaw.jpg"},
+    {"foodItem":"Misal","foodPrice":40,"photo":"misal.jpeg"},
+    {"foodItem":"Bhel","foodPrice":30,"photo":"bhel.jpg"}   
+]

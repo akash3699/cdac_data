@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Gold Game</title>
+   <script>
+       var counter;
+       var gold;
+       var spanAttempts;
+       
+       function HideGold()
+       {
+           counter=3;
+           spanAttempts=document.getElementById("span_attempts");
+           debugger;
+           var goldDiv = Math.floor(Math.random()*10);
+           gold=goldDiv%9;
+        //    var goldDivSelect =document.getElementById(goldDiv);
+        //    goldDivSelect.innerHTML="Gold";
+        //     goldDivSelect.hidden=true;
+            
+        //    goldDivSelect.backgroundColor="black";
+
+        //    goldDivSelect.style.alignContent="center";
+           spanAttempts.innerText=counter;
+           
+       }
+       function disableDiv()
+       {
+        //    for(i=1;i<10;i++)
+        //    {
+        //        document.getElementById(1).disable=true;
+        //    }
+
+         document.getElementById("1").onclick=false;
+        // document.getElementById("2").disable=disable;
+        // document.getElementById("3").disable=disable;
+        // document.getElementById("4").disable=disable;
+        // document.getElementById("5").disable=disable;
+        // document.getElementById("6").disable=disable;
+        // document.getElementById("7").disable=disable;
+        // document.getElementById("8").disable=disable;
+        // document.getElementById("9").disable=disable;
+        
+       }
+       function SelectDiv1()
+       {
+            counter=counter-1;
+            var selectDiv =document.getElementById("1");
+            selectDiv.style.backgroundColor="red"; 
+            if(counter<=0)
+            {
+                alert("You Lost");
+                window.location.reload();
+
+            }
+            else if(selectDiv.innerText=="Gold" && counter>0)
+            {
+                selectDiv.style.backgroundColor="gold";
+                selectDiv.style.fontSize="10";
+                alert("You Win !!");
+            }
+            
+            spanAttempts.innerText=counter;
+       }
+       function SelectDiv2()
+       {
+            counter=counter-1;
+            var selectDiv =document.getElementById("2");
+            selectDiv.style.backgroundColor="red"; 
+            if(counter<=0)
+            {
+                alert("You Lost");
+                window.location.reload();
+
+            }
+            else if(selectDiv.innerText=="Gold" && counter>0)
+            {
+                selectDiv.style.backgroundColor="gold";
+                selectDiv.style.fontSize="10";
+                alert("You Win !!");
+            }
+            
+            spanAttempts.innerText=counter;
+       }
+       function SelectDiv3()
+       {
+            counter=counter-1;
+            var selectDiv =document.getElementById("3");
+            selectDiv.style.backgroundColor="red"; 
+            if(counter<=0)
+            {
+                alert("You Lost");
+                window.location.reload();
+
+            }
+            else if(selectDiv.innerText=="Gold" && counter>0)
+            {
+                selectDiv.style.backgroundColor="gold";
+                selectDiv.style.fontSize="10";
+                alert("You Win !!");
+            }
+           
+            spanAttempts.innerText=counter;
+       }
+       function SelectDiv4()
+       {
+            counter=counter-1;
+            var selectDiv =document.getElementById("4");
+            selectDiv.style.backgroundColor="red"; 
+            if(counter<=0)
+            {
+                alert("You Lost");
+                window.location.reload();
+
+            }
+            else if(selectDiv.innerText=="Gold" && counter>0)
+            {
+                selectDiv.style.backgroundColor="gold";
+                selectDiv.style.fontSize="10";
+                alert("You Win !!");
+            }
+            
+            spanAttempts.innerText=counter;
+       }
+       function SelectDiv5()
+       {
+            counter=counter-1;
+            var selectDiv =document.getElementById("5");
+            selectDiv.style.backgroundColor="red"; 
+            if(counter<=0)
+            {
+                alert("You Lost");
+                window.location.reload();
+
+            }
+            else if(selectDiv.innerText=="Gold" && counter>0)
+            {
+                selectDiv.style.backgroundColor="gold";
+                selectDiv.style.fontSize="10";
+                alert("You Win !!");
+            }
+            
+            spanAttempts.innerText=counter;
+       }
+       function SelectDiv6()
+       {
+            counter=counter-1;
+            var selectDiv =document.getElementById("6");
+            selectDiv.style.backgroundColor="red"; 
+            if(counter<=0)
+            {
+                alert("You Lost");
+                window.location.reload();
+
+            }
+            else if(selectDiv.innerText=="Gold" && counter>0)
+            {
+                selectDiv.style.backgroundColor="gold";
+                selectDiv.style.fontSize="10";
+                alert("You Win !!");
+            }
+            
+            spanAttempts.innerText=counter;
+       }
+       function SelectDiv7()
+       {
+            counter=counter-1;
+            var selectDiv =document.getElementById("7");
+            selectDiv.style.backgroundColor="red"; 
+            if(counter<=0)
+            {
+                alert("You Lost");
+                window.location.reload();
+
+            }
+            else if(selectDiv.innerText=="Gold" && counter>0)
+            {
+                selectDiv.style.backgroundColor="gold";
+                selectDiv.style.fontSize="10";
+                alert("You Win !!");
+            }
+            
+            spanAttempts.innerText=counter;
+       }
+       function SelectDiv8()
+       {
+            counter=counter-1;
+            var selectDiv =document.getElementById("8");
+            selectDiv.style.backgroundColor="red"; 
+            if(counter<=0)
+            {
+                alert("You Lost");
+                window.location.reload();
+
+            }
+            else if(selectDiv.innerText=="Gold" && counter>0)
+            {
+                selectDiv.style.backgroundColor="gold";
+                selectDiv.style.fontSize="10";
+                alert("You Win !!");
+            }
+            
+            spanAttempts.innerText=counter;
+       }
+       function SelectDiv9()
+       {
+            counter=counter-1;
+            var selectDiv =document.getElementById("9");
+            selectDiv.style.backgroundColor="red";
+            if(counter<=0)
+            {
+                alert("You Lost");
+                window.location.reload();
+
+            }
+            else if(selectDiv.innerText=="Gold" && counter>0)
+            {
+                selectDiv.style.backgroundColor="gold";
+                selectDiv.style.fontSize="10";
+                alert("You Win !!");
+            }
+            
+            spanAttempts.innerText=counter; 
+       }
+
+   </script>
+</head>
+<body onload="HideGold()">
+    <center>
+    <table>
+        <tr>
+            <td><div onclick="SelectDiv1()" id="1" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div onclick="SelectDiv2()" id="2" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div onclick="SelectDiv3()" id="3" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+        </tr>
+        <tr>
+            <td><div onclick="SelectDiv4()" id="4" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div onclick="SelectDiv5()" id="5" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div onclick="SelectDiv6()" id="6" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+        </tr>
+        <tr>
+            <td><div onclick="SelectDiv7()" id="7" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div onclick="SelectDiv8()" id="8" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+            <td><div onclick="SelectDiv9()" id="9" style="text-align: center; background-color: black; height: 150px; width:150px"></div></td>
+        </tr>
+        <tr>
+            <td style="text-align: center" ><input id="refresh" onclick="window.location.reload();" value="refresh" type="button"></td>
+            <td style="text-align: center"colspan="2">No of attempts:<div id="span_attempts" ></div></td>
+
+        </tr>
+        
+    </table>
+</center>
+</body>
+</html>

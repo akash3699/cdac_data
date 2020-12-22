@@ -1,0 +1,32 @@
+# set the version of docker-compose yml file
+version: '3'
+
+# list the services you want to manage
+services:
+
+  # database service
+  db:
+    # where to find Dockerfile to build an image for db
+    build: ./db/
+
+    # the port forwarding configuration
+    ports:
+    - "9099:3306"
+
+  # express service
+  backend: 
+    # where to find Dockerfile to build an image for backend
+    build: ./backend/
+
+    # the port forwarding configuration
+    ports: 
+    - "8000:4000"
+
+  # angular service
+  frontend:
+    # where to find Dockerfile to build an image for angular
+    build: ./angular/myapp/
+
+    # the port forwarding configuration
+    ports: 
+    - "8088:80"

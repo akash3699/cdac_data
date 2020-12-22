@@ -1,0 +1,27 @@
+Software Installation required for JSF module
+
+(Open terminal from home directory and give following command step by step) 
+
+1.Installation of npm
+	a.sudo apt-get install npm
+
+2. IP configuration for npm
+	a.sudo npm config set proxy http://200.0.1.254:70
+	b.sudo npm config set https-proxy http://200.0.1.254:70 
+
+3. Copy node_module.zip and mean.sh file from network to your home directory
+
+4. open terminal from home directory and give below command one by one
+	a. chmod +x mean.sh
+	b. sudo ./mean.sh
+
+5. check version of angular and tsc on same terminal
+	a. ng -v  //expected version Angular CLI: 6.1.1
+	b. tsc -v //expected version Version 3.0.1
+
+
+
+
+
+
+

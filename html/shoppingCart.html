@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Shopping Cart</title>
+   <script src="jquery-1.8.3.js"></script>
+    <script>
+        var SRno=0;
+        $(document).ready(function(){
+            $.ajax({
+                url:"data1.json",
+                contentType:"application/json",
+                type:"GET",
+                success:function(data){
+                    
+                    for(i=0;i<data.length;i++)
+                    {
+                        $("#table1").append("<tr><td><img style='height:100px; width:100px' src='"+data[i].photo+"'</td><td>" + data[i].foodItem +"</td><td>"+data[i].foodPrice+"</td><td><input type='button' id='addtocart' value='Add To Cart'</td></tr>");
+                    }
+                },
+                error:function(err){
+
+                }
+
+            });
+
+
+            $("#remove").live("click",function(){
+                var subtotal = parseInt( $($(this).parent().parent().children()[5]).html());
+                //var sr1=$(this).parent();
+                $(this).parent().parent().remove();
+                var tot= parseInt( $("#TotalDiv").html() );
+                tot=tot-subtotal;
+                $("#TotalDiv").html(tot);
+                debugger;
+                for(i=1;i<$($($("#table2").children()[0]).children()).length;i++)
+                {
+                    $($($($("#table2").children()[0]).children()[i]).children()[0]).html(i);
+                }
+                debugger;
+
+            });
+
+            $("#qi").live("click",function(){
+                var price1 = parseInt( $($(this).parent().parent().children()[2]).html());
+                var qty1 = parseInt( $($(this).parent().parent().children()[3]).html());
+                $($(this).parent().parent().children()[3]).html(qty1+1);
+                var subtotal = parseInt( $($(this).parent().parent().children()[5]).html());
+                $($(this).parent().parent().children()[5]).html(subtotal+price1);
+                var tot= parseInt( $("#TotalDiv").html() );
+                tot=tot+price1;
+                $("#TotalDiv").html(tot);
+                debugger;
+
+            });
+
+            $("#qd").live("click",function(){
+                var price1 = parseInt( $($(this).parent().parent().children()[2]).html());
+                var qty1 = parseInt( $($(this).parent().parent().children()[3]).html());
+                if(qty1>1 )
+                {
+                    $($(this).parent().parent().children()[3]).html(qty1-1);
+                    var subtotal = parseInt( $($(this).parent().parent().children()[5]).html());
+                    $($(this).parent().parent().children()[5]).html(subtotal-price1);
+                    var tot= parseInt( $("#TotalDiv").html() );
+                    tot=tot-price1;
+                    $("#TotalDiv").html(tot);
+                    debugger;
+                }
+                else
+                {
+                    var subtotal = parseInt( $($(this).parent().parent().children()[5]).html());
+                    $(this).parent().parent().remove();
+                    var tot= parseInt( $("#TotalDiv").html() );
+                    tot=tot-subtotal;
+                    $("#TotalDiv").html(tot);
+
+                }
+
+            });
+
+            $("#addtocart").live("click",function(){
+                var item = $($(this).parent().parent().children()[1]).html();
+                var price = parseInt( $($(this).parent().parent().children()[2]).html());
+                var qty=1;
+                
+                flag=0;
+                var subtotal=parseInt(qty*price);
+                var v_table2 = $("#table2");
+                for(i=1;i<$($("#table2").children()[0]).children().length;i++)
+                {
+                    var v_tr=$($(v_table2.children()).children()[i]);
+                    var item1=$($($($(v_tr).parent()).children()[i]).children()[1]).html();
+                    if(item1==item)
+                    {
+                        
+                        flag=1;
+                        var temp=parseInt( $(v_tr.children()[3]).html());//qty
+                        $(v_tr.children()[3]).html(temp+1);
+                        var temp1=parseInt( $(v_tr.children()[2]).html() );
+                        var temp3=parseInt( $(v_tr.children()[3]).html() );
+                        $(v_tr.children()[5]).html(temp1*temp3);
+                        var tot= parseInt( $("#TotalDiv").html() );
+                        //var temp4=parseInt($(v_tr.children()[5]).html());
+                        tot=tot+(temp1);
+                        $("#TotalDiv").html(tot);
+                    }
+                    debugger;
+                }
+                if(flag==0)
+                {
+                    var tot= parseInt( $("#TotalDiv").html() );
+                    tot=tot+price;
+                    $("#TotalDiv").html(tot);
+                    SRno=SRno+1;
+                    $("#table2").append("<tr><td>"+SRno+"</td><td id='item'>" + item +"</td><td id='price'>"+price+"</td><td id='qty'>"+qty+"</td><td><input type='button' id='qd' value='<'><input type='button' id='qi' value='>'></td><td id='subtotal'>"+subtotal+"</td><td><input type='button' id='remove' value='remove from Cart'</td></tr>");
+                    for(i=1;i<$($($("#table2").children()[0]).children()).length;i++)
+                    {
+                        $($($($("#table2").children()[0]).children()[i]).children()[0]).html(i);
+                    }
+                }
+            })
+        });
+    </script>
+</head>
+<body>
+    <!-- <table id="titletable" style="width: 100%" >
+        <tr>
+            <td ><table style="width: 50%" border="1" id="tablex" ><tr><td>Food Pic</td><td>Food Item</td><td>food Price</td></tr></table></td>
+            <td><table border="1" id="tabley" ></table></td>
+        </tr>
+    </table> -->
+    <table id="maintable" >
+        
+        <tr>
+            <td ><table  border="1" id="table1" ><tr><td>photo</td><td>foodItem</td><td>foodPrice</td><td>addtocart</td></tr></table></td>
+            <td><table  style="vertical-align: top; top: 0px" border="1" id="table2" ><tr><td>SRno</td><td>foodItem</td><td>foodPrice</td><td>qty</td><td>Q</td><td>subtotal</td><td>remove from cart</td></tr></table></td>
+            <td style="text-align: center">Total is<div id="TotalDiv" style="text-align: center; background-color: cornflowerblue; height: 100px; width:100px">0</div></td>
+        </tr>
+    </table>
+</body>
+</html>

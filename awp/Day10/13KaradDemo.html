@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <script>
+        function Validate()
+        {
+            ValidateEmpty();
+        }
+        function  ValidateEmpty()
+        {
+            var element = 
+                document.getElementById("txtName");
+            var errspan = 
+                document.getElementById("errSpanForName");
+
+            if(element.value == "")
+            {
+                  errspan.innerText = "Name is required.";  
+            }
+            else
+            {
+                errspan.innerText = "";  
+            }
+        }
+    </script>
+</head>
+<body>
+    <table style="width:400px">
+        <tr>
+            <td>Name</td>
+            <td><input type="text" id="txtName"></td>
+            <td><span id="errSpanForName"></span></td>
+        </tr>
+        <tr>
+            <td>Age</td>
+            <td><input type="text" id="ttxAge"></td>
+            <td><span id="errSpanForAge"></span></td>
+        </tr>
+        <tr>
+            <td>EMail</td>
+            <td><input type="text" id="txtEmail"></td>
+            <td><span id="errSpanForEMail"></span></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" id="txtPassword"></td>
+            <td><span id="errSpanForPassword"></span></td>
+        </tr>
+        <tr>
+            <td>Confirm</td>
+            <td><input type="password" id="txtConfirmPassword"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="text-align: center">
+                <input type="button"  id="btnRegister" value="Register" onclick="Validate()">
+            </td>
+        </tr>
+    </table> 
+</body>
+</html>
+
+

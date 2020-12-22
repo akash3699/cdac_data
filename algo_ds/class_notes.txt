@@ -1,0 +1,1201 @@
+Course Name		: PG-DAC
+Module Name		: Algorithms and Data Structures
+Total Marks		: 100 Marks
+Theory Exam		: 40 Marks -- CPT-1
+Lab Exam		: 40 Marks
+Internal Exam	: 20 Marks : Rapid sheet completion, attendance,
+					internal test
+Total Hrs		: 70 Hrs = 34 hrs Lecture + 36 hrs of Lab.
+-------------------------------------------------------------------------
+- "data base" is way to store data into the secondary memory in an oraganized manner (i.e. in the form of well defined/structured tables).
+
+Q. what is data structure?
+- it is a way to store data into the memory i.e. into the main memory
+in an organized manner so that operations (like addition, deletion, searching, sorting, traversal etc...) can be performed on it efficiently.
+ 
+Q. why there is a need of data structure?
+- there is a need of data structure in programming to achieve following things:
+	1. efficiency
+	2. abstraction
+	3. reusability
+	
+- there are two types of data structure:
+	1. linear data structure/basic data structures:
+		- array
+		- structure & union
+		- class
+		- linked list
+		- stack
+		- queue
+		 
+	2. non-linear data structure/advanced data structure
+		- tree
+		- graph
+		- hash table
+		- binary heap
+		etc....
+
+
+
++ array: it is a collection of logically related similar type of elements
+in which data ele's gets stored into the memory at contoguos memory
+locations.
+
++ structure: it is a collection of logically related similar and disimilar type of elements which gets stored into the memory collectively.
+--------------------------------------------------------------- 
++ what is an algorithm?
+- it is a set of finite no. of instructions, if followed, acomplishesh
+given task.
+- it is a set of finite no. of instructions in human understandable language like an english with some programming contstraints, if followed
+the given task can be completed -- such kind of algo is also reffered
+as "pseudocode".
+e.g. 
+	
+	Algorithm ArraySum(A, n)//A is an array of size "n"
+	{
+		sum=0
+		for( index = 1 ; index <= n ; index++ )
+			sum += A[index];
+		
+		return sum;
+	}
+
+- an algorithm is a solution for a given problem.
+- an algorithm = solution
+- problem: sorting - it is a process to arrange data ele's in a collection/list (i.e. either an array or linked list) of ele's either
+in an ascending order or in a descending order.
+- there are different sorting algo's are available i.e. to solve a problem of sorting many solutions are available.
+	e.g. 	- selection sort
+			- bubble sort
+			- insertion sort
+			- quick sort
+			- merge sort
+			- heap sort
+			- radix sort
+			- shell sort
+			- bucket sort
+			etc...
+			
+- when we have many solutions for a given single problem, we need to select an efficient one (for implementation), and to decide an efficiency of algorithms we need to do their analysis.
+- analysis of an algorithm is a work of determining how much "time" i.e. computer time and "space" i.e. computer memory/computer space it needs to run to completion.
+- there are two measures of an analysis of an algoithm:
+	1. time complexity -- of an algo is the amount of computer time it
+	needs to run to completion.
+	
+	2. space complexity -- of an algo is the amount of computer space
+	memory it needs to run to completion.
+	
+- there are two types of an algo/there are two approaches to write an
+algorithm:
+1. iterative approach:
+e.g.
+	Algorithm ArraySum(A, n)//A is an array of size "n"
+	{
+		sum=0
+		for( index = 1 ; index <= n ; index++ )
+			sum += A[index];
+		
+		return sum;
+	}
+
+	- initialization
+	- termination condition
+	- modification
+	
+2. recursive approach:
+e.g.	
+	Algorithm RArraySum(A, n, index)
+	{
+		//base condition
+		if( index > n )
+			return 0;
+		return ( A[index] + RArraySum(A, n, index+1))
+	}
+	
+	int main(void)
+	{
+		RArray(arr, SIZE, 1);//initialization
+	}
+
+	- initialization: we need to take care at the time first time
+	function calling to the rec function. 
+	- base condition: we need to take care at the begining of rec
+	function definition 
+	- modification: we need to take care at the time rec function calling
+
+Q. what is recursion?
+- it is a process/concept in which we can call any function from inside
+that function itself, such a function is reffered as "recursive function" and function call is reffered as recursive function call
+- 
+e.g. 
+	void fun(int n)
+	{
+		if( n == 5 )
+			return;
+		printf("%4d", n);
+		fun(--n);//recursive function call
+	}
+	
+- there are two types of recursive functions:
+1. tail recursive: recursive function in which recursive function call
+is the last executable statement.
+	void fun(int n)
+	{
+		//base condition
+		if( n == 0 )
+			return;
+		printf("%4d", n);
+		fun(--n);//recursive function call is the last executable
+		statement
+	}
+	
+	int main(void)
+	{
+		fun(5);//first time calling to the rec function call
+		return 0;
+	}
+
+2. non-tail recursive: recursive function in which recursive function call is the last executable statement.
+e.g.
+	void fun(int n)
+	{
+		if( n == 5 )
+			return;
+			
+		fun(--n);//recursive function call
+		printf("%4d", n);
+		//statement/s
+	}
+=========================================================================	
++ space complexity = code space (i.e. space required for an instructions) + data space (i.e. space required for simple vars, constants and instance vars) + stack space (applicable in only recursive algo's).
+
+e.g.
+	Algorithm ArraySum(A, n)//A is an array of size "n"
+	{
+		sum=0
+		for( index = 1 ; index <= n ; index++ )
+			sum += A[index];
+		
+		return sum;
+	}
+
+
+- space complexity has two components:
+1. fixed component: code space, space required for simple vars and constants.
+2. variable component: space required instance vars and stack space(in
+only recursive algo).
+-------------------------------------------------------------------------- 
+- time complexity = compilation time + execution time
+1. fixed component: compilation time
+2. variable component: execution time
+
+* time complexity: 
+time complexity = compilation time + execution time
+- compilation time is a fixed component, whereas execution time is a variable component.
+- execution time is depends on instance characteristics i.e. input size
+- as an execution time is not only depends on instance chars, it also
+depends on some external factors/environment like type of machine, no. of processes running in the system, and hence time complexity cannot be calculated exactly by using this approach, therefore another method can be used for calculating time and space complexities reffered as "asymptotic analysis".
+	
++ asymptotic analysis: it is a "mathematical" way to calculate time complexity and space complexity of an algorithm without implementing it in any programming language.
+- to do asymptotic analysis "basic operation" in an algo can be focused.
+e.g. in searching and sorting algo's comparison is the basic operation, and hence analysis of such algo's can be done on the basis of no. of comparisons in it.
++ best case time complexity: when an algo takes minimum amount of time to complete its execution then it is reffered as best case time complexity.
+
++ worst case time complexity: when an algo takes maximum amount of time to complete its execution then it is reffered as worst case time complexity.
+
++ average case time complexity: when an algo takes neither minimum nor maximim amount of time to complete its execution then it is reffered as an average case time complexity.
+
++ asymptotic notations:
+1. Big Oh (O) -- asymptotic upper bound -- worst case
+2. Big Omega ( ) -- asymptotic lower bound -- best case
+3. Big Theta ( ) -- asymptotic tihght bound -- average case
+
+- as an execution time of a program (an algo) is not only depends on
+input size, it also depends on hardware conf as well as on some external factors in which program is in execution, and hence we cannot calculate
+time complexity of any program/algo exactly by this using method, and hence we can use "asymptotic analysis" method to calculate time and space
+complexity.
+- "asymptotic analysis" - it is a mathematical way to calculate time and
+space complexity of an algo without implementing it in any programming language.
+
+	Algorithm LienarSearch(A, n, key )
+	{
+		for( index = 1 ; index <= n ; index++ )
+		{
+			if( A[index] == key )
+				return true;
+		}
+		
+		return false;
+	}
+
+- linear search:
+	best case 		-- O(1)
+	worst case 		-- O(n)
+	average case	-- O(n)
+
+
+- binary search:
+	best case 		-- O(1)
+	worst case 		-- O(log n)
+	average case	-- O(log n)
+	
+		
+========================================================================
++ assumptions:
+	- if running time of an algo is having any additive or substractive
+	constant then it can be neglected.
+	e.g. O(n+3) OR O(n-5) ==> O(n)
+	
+	- if running time of an algo is having any multiplicative or
+	divisive constant then it can be neglected.
+	e.g. O(3n) OR O(n/5) ==> O(n)
+	
++ O(1):
+	- if algo/fuction do not contains any loop or call to non-constant
+	function or call to any rec function, we will get time complexity
+	of that algo/function in terms of O(1).
+	e.g.
+		void swap(int *ptr1, int *ptr2)
+		{
+			int temp = *ptr1;
+			*ptr1 = *ptr2;
+			*ptr2 = temp;
+		}
+		
+	- if in an algo/function, statement/s inside the loop executes
+	constant number/amount of time, then we will time complexity in terms
+	of O(1).
+	e.g.
+		for( int i = 1 ; i <= c ; i++ )//whereas c is any constant
+		{
+			//O(1) statement/s
+		}
+	
+	
++ O(n):
+	- if in an algo/function, statement/s inside the loop executes
+	"n" no. of  of time, then we will time complexity in terms
+	of O(n).
+	e.g.
+		for( int i = 1 ; i <= n ; i++ )//n is an instance var
+		{
+			//O(1) statement/s
+		}
+		
+	- if loop counter var is either incremented/decremented by a constant
+	value, then we will gets time complexity of such algo/function in
+	terms of O(n).
+	e.g.
+		for( int i = 1 ; i <= n ; i += c )
+		{
+			//O(1) statement/s
+		}
+	
+		for( int i = n ; i > 0 ; i -= c )
+		{
+			//O(1) statement/s
+		}
+	
++ O(log n):
+	- if loop counter var is either getting multiplied/divided by a
+	constant value, then we will gets time complexity of such algo
+	function in terms of O(log n).
+	e.g.
+		for( int i = 1 ; i <= n ; i *= c )
+		{
+			//O(1) statement/s
+		}
+		OR
+		for( int i = n ; i > 0 ; i /= c )
+		{
+			//O(1) statement/s
+		}
+	
+	
+	
+	
+	
+	
+	
+=================================================================
+
++ array:
+- "searching": to serach a key ele in a given collection/list of
+elements.
+
+1. linear search:
+	Algorithm LinearSearch(A, n, key)
+	{
+		for( int index = 1 ; index <= SIZE ; index++ )
+		{
+			if( A[ index ] == key )
+				return true;
+		}
+		return false;
+	}
+	
+	
+* best case -- when key is found at first pos then algo does only one comparison, time complexity of an algo in this case = O(1).
+Big Omega(1)
+		
+* worst case -- when either key is exists at last position or key does not exists algo does max "n" no. of comparisons whereas "n" size of an array, in this case time complexity of an algo = O(n).
+
+* average case -- if key is exists at in between position the algo takes neither minimum nor max time to complete its execution, in this case time complexity of an algo = O(n/2).
+
+- also called as "sequential search".
+- it sequentially checks each element of the list until the match is found or the whole list has been searched.
+- best case -- occurs when key ele is found at first position, in this case algo takes O(1) time.
+- worst case -- occurs when either key ele is found at last position or key ele does not exists, in this case algo takes O(n) time whereas n is the no. of ele's in the list/collection.
+- average case -- occures when key ele is exists in the list at in between position, in this ase algo takes O(n/2) => O(n) time.
+	
+2. binary search:
+	- also called as "logarithmic search" or "half interval search"
+	- this algo follows "divide-and-conquer" stratergy.
+	- to apply binary search prerequisite is collection/list of elements
+	must be in a sorted manner.
+	- in the first iteration -- mid position gets calculated and key ele
+	gets compared with ele at mid position, if key ele is found then it
+	will be the best case, otherwise array gets divided logically into
+	two sub array's left subarray and right sub array.
+	- if key ele is smaller than mid position ele then key ele gets
+	searched into the left sub array only, by skipping the whole right
+	sub array checking, or, if key ele is greater than mid position ele
+	then key ele gets searched into the right sub array only by skipping
+	whole left sub array.
+	- the logic repeats either till key ele is not found or till size of
+	an array is less than one.
+	- if key ele is found at mid position in the very first iteration
+	then no. of comparisons are "1" and it is considered as a best case,
+	in this algo takes O(1) time, otherwise it takes O(log n) time.
+	- as in every iteration this algo does 1 comparison and divides
+	array into sub two arrays and key ele gets searched either one of
+	the subarray, i.e. after every iteration it divides 
+	
+	
+	=> T(n) = T(n/2) + 1
+	for n = 1
+	T(n) = T(1) + 1
+	i.e. running time of an algo is O(1). --- trivial case
+	
+	for n > 1
+	T(n) = T(n/2)+ 1 ..... (I)
+	to get the value of T(n/2) put  n = n/2 in eq-I we get,
+	=> T(n/2) = T( n/2 / 2 ) + 1
+	=> T(n/2) = T(n/4) + 1 .....(II)
+	
+	substitute the value of T(n/2) in eq-I we get,
+	=> T(n) = [ T(n/4) + 1 ] + 1
+	=> T(n) = T(n/4) + 2 .....(III)
+	
+	
+	to get the value of T(n/2) put n = n/2 in eq-II we get,
+	=> T( (n/2) / 2 ) = T( (n/4) / 2 ) + 1
+	=> T(n/4) = T(n/8) + 1 .... (IV)
+	
+	substitute the value of T(n/4) in eq-III we get,
+	=> T(n/4) = [ T(n/8) + 1 ] + 2
+	=> T(n/4) = T(n/8) + 3 ......(V)
+	
+	.
+	.
+	after k iterations:
+	
+	T(n) = T(n/2^k) + k
+	
+	for n = 2^k
+	log n = log 2^k .... by taking log on both side
+	log n = k log 2
+	therefore, k = log n
+	=> T(n) = T(2^k/2^k) + log n
+	=> T(n) = T(1) + log n
+	=> T(n) = log n
+	
+	and hence, T(n) = O(log n).
+	
+	+ difference between linear search and binary search:
+	- in linear search after every iteration search space is reduced by
+	1 i.e. (n-1) and in binary search search space is reduced by half of
+	elements i.e. by (n/2).
+	- worst case time complexity of linear search is O(n) and of binary
+	search is O(log n) hence binary search is efficient than linear
+	search.
+	- binary search cannot be applied on linked list.
+
+=========================================================================================
+1. selection sort:
+------------------
+	- inplace comparison sort
+	- this algo divides the list logically into two sublists, first list
+	contains all elements and another list is empty.
+	- in the first iteration -- first element from the first list is
+	selected and gets compared with remaining all ele's in that list,
+	and the smallest ele can be added
+	into the another list, so after first iteration second list contains
+	the smallest ele in it.
+	- in the second iteration -- second element from the first list is
+	selected and gets compared with remaining all ele's in that list and
+	the smallest amongst them can be added into the another list at next
+	position, so in second iteration the second smallest element gets
+	added into the another list next to the smallest one,
+	and so on.....
+	- so in max (n-1) no. of iterations all elements from first list
+	gets added into the another list (which was initially empty) in a
+	sorted manner and we will get all elements in a collection/list in a
+	sorted manner.
+	- in every iteration one element gets selected and gets compared
+	with remaining 
+	- best case, worst case and average case time complexity of selection sort algo is O(n^2).
+	- advantages:
+		1. simple to implement
+		2. inplace
+	- disadvantages:
+		- not efficient for larger input size collection of ele's array
+		list.
+		- not adaptive i.e. not efficient for already sorted input
+		sequence.
+	
+================================================================================================
+2. bubble sort:
+---------------
+	- sometimes reffered to as "sinking sort".
+	- this algo divides the list logically into two sublists, initially
+	first list contains all elements and another list is empty.
+	- in the first iteration -- the largest element from first list gets
+	selected and gets added into the another list at last position.
+	- in the second iteration -- largest element from the ele's left in
+	a first list is selected and gets added into the second list at
+	second last position and so on....
+	- so in max (n-1) no. of iterations all elements from first list
+	gets added into the another list (which was initially empty) in a
+	sorted manner from last position to first position and we will get
+	all elements in a collection/list in a sorted manner.
+	OR
+	- ele's at consecutive locations gets compared with each other of
+	they are not in order then they gets swapped otherwise their
+	position remains same.
+
+	- best case -- if array ele's are already sorted then this algo
+	takes O(n) time
+	- worst case and average case time complexity of bubble sort algo is
+	O(n^2).
+	
+	- advantages:
+		- simple to implement
+		- inplace - do not takes extra space for sorting ele's
+		- can be implement as an adaptive
+		- highly stable 
+	- disadvantages:
+		- not efficient for larger input size collection of ele's array
+		list.
+		- not adaptive in nature but can be implement as an adaptive
+
+	+ insertion sort --
+
++ sorting:
+	- features of sorting algorithms:
+	1. inplace - if a sorting algo do not takes extra space then
+	it is reffered as inplace.
+	
+	2. adaptive - if a sorting algo works efficiently for already
+	sorted input sequence then it is reffered as adaptive. 		 
+	
+	3. stable - if relative order of two ele's having same key value
+	remains same after sorting, then such a sorting algo is
+	reffered as stable. 
+
+==============================================================================================
++ limitations of an array:
+- array is static i.e. size of an array cannot be grow or shrinked during runtime.
+- addition and deletion operations are not efficient as well as convenient.
+
+---------------------------------------------------------------
++ linked list - it is a collection/list of logically related similar
+type of elements in which
+	- addr of first element in that collection/list gets stored into
+	a pointer variable reffered as "head", and
+	- each element contains actual data (of any primitive or non
+	primitive type) and link to its next (as well as prev) element
+	in it.
+	
+- element in a linked list is also called as "node". 
+- there are four types of linked list:
+	1. singly linear linked list
+	2. singly circular linked list
+	3. doubly linear linked list
+	4. doubly circular linked list
+	
+1. singly linear linked list: it is a linked list in which
+	- head always contains addr of first ele/node, if list is not empty
+	- each node/element has two parts:
+	1. data part: contains actual data of any primitive or non-primitive
+	type
+	2. pointer part(next): addr of its next node
+	- last node points to NULL i.e. next part last node contains NULL.  
+	
+2. singly circular linked list: it is a linked list in which
+	- head always contains addr of first ele/node, if list is not empty
+	- each node/element has two parts:
+	1. data part: contains actual data of any primitive or non-primitive
+	type
+	2. pointer part(next): addr of its next node
+	- last node points to first node i.e. next part last node contains
+	addr of first node.
+	  
+	
+3. doubly linear linked list: it is a linked list in which
+	- head always contains addr of first ele/node, if list is not empty
+	- each node/element has three parts:
+	1. data part: contains actual data of any primitive or non-primitive
+	type
+	2. pointer part (prev): contains addr of its prev
+	3. pointer part (next): contains addr of its next node
+	- next part of last node points NULL & prev of first node points to
+	NULL.
+	
+4. doubly circular linked list: it is a linked list in which
+	- head always contains addr of first ele/node, if list is not empty
+	- each node/element has three parts:
+	1. data part: contains actual data of any primitive or non-primitive
+	type
+	2. pointer part (prev): contains addr of its prev
+	3. pointer part (next): contains addr of its next node
+	- next part of last node points first node & 
+	prev of first node points to last node.
+	
+
++ "applications of linked list":
+- linked list can be used to implement basic data structures like stack, queue, priority queue, double ended queue.
+- it can also be used to implement advanced data structures like tree, graph and hash table.
+- linked list can be used to implement advanced data structure
+algorithms.
+- linked list can be used in implementation of OS/Kernel data structures like ready queue, job queue, waiting queue, message queue etc....
+- linked list can be used to implement OS algorithms like FIFO cpu scheduling algo, priority cpu scheduling algo, page replacement algo's, disk scheduling algo etc....
+- applications in which collection/list of elements is dynamic in nature we can go for linked list.
+e.g. image veiwer, next and prev pages in a web browser, music player
+	
+
++ "difference between array and linked list":
+- array is "static" i.e. size of an array cannot grow or shriked
+during runtime, whereas linked list is "dynamic" i.e. we can grow or shrinked size of a linked list during runtime (we can add as well delete elements in a linked list during runtime).
+- array elements can be accessed by using "random access" method which is faster than "sequential access" method used for accessing linked list elements.
+- array elements gets stored into the main memory at "contiguos memory locations", whereas linked list elements gets stored into the memory at "random locations" and need to maintained link between them.
+- for storing array elements it takes less space in comparison with space required to store linked list elements -- as in an array link between array ele's maintained by the compiler whereas programmer need to take care about maintaining link between linked list ele's and for maintaining link extra space is required.
+- addition and deletion ele operations in array takes O(n) time which is not an efficient one as well these operations are not convenient, whereas addition and deletion ele operations in a linked list takes O(1) time which is an efficient operations and convenient as well.
+- array elements gets stored into the main memory at "stack section", whereas linked list elements gets stored into the main memory at "heap section".
+
+------------------------------------------------------------------------
++ queue: it is a collection/list of logically related similar type of
+elememts in which element can be added/inserted from one end reffered as "rear" end and element can be deleted/removed from another end reffered as "front" end.
+- in this list element which was inserted first can be deleted first, so this list works in "first in first out" manner, and hence this list also
+called as "FIFO" list.
+- we can perform two basic operations on queue in O(1) time:
+	1. enqueue: to insert/add/push element into the queue from rear end
+	2. dequeue: to delete/remove/pop element from the queue which is at
+	front position.
+- there are different types of queue:
+1. linear queue
+2. circular queue
+3. priority queue: it is a queue in which element can be added from rear
+end randomly(without checking priority), whereas element can only be deleted first which is having highest priority.
+- priority queue can be implemented by using linked list, whereas it can
+be implemented efficiently by using "binary heap".
+
+4. double ended queue: it is a queue in which element can be added as well deleted from both the ends, it is also called as "deque".
+- we can perform four basic operations on deque:
+	1. push_back() -- add_last()
+	2. push_front() -- add_first()
+	3. pop_back() -- delete_last()
+	4. pop_front() -- delete_first()
+	
+- deque can be implemented by using doubly circular linked list.
+
+
++ implementation of linear queue:
+	1. static implementation -- by using an array
+	2. dynamic implementation -- by using an linked list
+	
+1. static implementation -- by using an array
+	# linear queue:
+	int arr[SIZE];
+	int front;
+	int rear;
+
+	queue_full	: rear == SIZE-1
+	queue_empty	: rear == -1 || front > rear
+	
+	1. enqueue: to insert/add/push element into the queue from rear end:
+		- check queue is not full
+		- increment the value of rear by 1
+		- push ele into the queue at rear position
+		- if( front == -1 )
+			front = 0
+		
+	2. dequeue: to delete/remove/pop element from the queue which is at
+	front position:
+		- check queue is not empty
+		- increment the value of front by 1 [ i.e. we are deleting ele
+		from the queue].
+		
+2. static implementation -- by using an array
+	# circular queue
+
+	int arr[SIZE];
+	int front;
+	int rear;
+
+	queue_full	: front == ( rear + 1 ) % SIZE
+	queue_empty	: rear == -1 && front == rear
+	
+	1. enqueue: to insert/add/push element into the queue from rear end:
+		- check queue is not full
+		- increment the value of rear by 1 [ rear = (rear+1)%SIZE ]
+		- push ele into the queue at rear position
+		- if( front == -1 )
+			front = 0
+		
+	2. dequeue: to delete/remove/pop element from the queue which is at
+	front position:
+		- check queue is not empty
+		- if ( front == rear )//we are deleting last ele
+			front = rear = -1;
+		  else
+		  {
+			increment the value of front by 1 [ i.e. we are deleting ele
+			from the queue].
+		  }
+
+
+
+
+front == ( rear + 1 ) % SIZE
+for rear=0, front=1
+=> front == (rear+1)%SIZE
+=> 1 == (0+1)%5
+=> 1 == 1%5
+=> 1 == 1
+
+for rear=1, front=2
+=> front == (rear+1)%SIZE
+=> 2 == (1+1)%5
+=> 2 == 2%5
+=> 2 == 2
+
+for rear=2, front=3
+=> front == (rear+1)%SIZE
+=> 3 == (2+1)%5
+=> 3 == 3%5
+=> 3 == 3
+
+for rear=3, front=4
+=> front == (rear+1)%SIZE
+=> 4 == (3+1)%5
+=> 4 == 4%5
+=> 4 == 4
+
+for rear=4, front=0
+=> front == (rear+1)%SIZE
+=> 0 == (4+1)%5
+=> 0 == 5%5
+=> 0 == 0
+
+
+rear++ => rear = rear + 1
+
+rear = (rear + 1) % SIZE
+for rear=0 => rear = (rear + 1) % SIZE => (0+1)%5 => 1%5 => 1
+for rear=1 => rear = (rear + 1) % SIZE => (1+1)%5 => 2%5 => 2
+for rear=2 => rear = (rear + 1) % SIZE => (2+1)%5 => 3%5 => 3
+for rear=3 => rear = (rear + 1) % SIZE => (3+1)%5 => 4%5 => 4
+for rear=4 => rear = (rear + 1) % SIZE => (4+1)%5 => 5%5 => 0
+
+
++ queue implementation by using linked list:
+	enqueue -- add_last()
+	dequeue -- delete_first()
+	OR
+	enqueue -- add_first()
+	dequeue -- delete_last()	
+
+
++ "applications of queue":
+- queue can be used to implement advanced data algo's like "bfs" breadth first search in tree and graph.
+- queue can be used to implement os algorithms like cpu shed algos's - priority sched algo, FCFS etc..., page replacement algo's -- FIFO, disk sched algo's
+- queue can be used to implement kernel/os data structures like job queue, ready queue waiting queue etc....
+- queue can be used in an application where the requirement is in a
+collection/list of ele's list works in "first in first out".
+
+---------------------------------------------------------------------
++ stack: it is a collection/list of logically related similar type of
+elements in which element can be added as well deleted only from one
+end reffered as "top" end.
+- in this list element which was inserted/added last can only be deleted
+first, so this list works in "last in first out" manner, and hence this
+list is also called as "LIFO" list.
+- we can perform 3 basic operations on stack in O(1):
+	1. push : to insert/add element into the stack at top end
+	2. pop  : to delete/remove element from the stack which is at top
+	position
+	3. peek : to get the value of topmot element
+- we can implement stack by two ways:
+1. static implementation: by using an array
+2. dynamic implementation: by using linked list
+
+1. static implementation: by using an array:
+
+	int arr[SIZE];
+	int top;
+
+	stack_full	: top == SIZE-1
+	stack_empty	: top == -1
+	
+- we can perform 3 basic operations on stack in O(1):
+	1. push : to insert/add element into the stack at top end:
+		- check stack is not full
+		- increment the value of top by 1
+		- insert ele into the stack at top position
+		
+	2. pop  : to delete/remove element from the stack which is at top
+	position
+		- check stack is not empty
+		- decrement the value of top by 1 i.e. we are deleting/popping
+		ele from the stack
+		
+	3. peek : to get the value of topmot element
+		- check stack is not empty
+		- return/get the value of topmost ele (without incrementing
+		decrementing top).
+		
++ implementatio of stack -- dynamically by using linked list
+	push -- add_last()
+	pop -- delete_last()
+	OR
+	push -- add_first()
+	pop -- delete_first()
+
++ "applications of stack":
+	- stack is used by an os to control flow of an execution of a
+	programs
+	- stack can be used internally by an os in the process of recursion
+	- undo and redo functionalities of an os uses stack
+	- stack can be used to implement advanced data structure algo's like
+	"dfs" depth first search in tree and graph.
+	- stack can be used in any applications where in a collection/list
+	of elements works in last in first out manner.
+	- stack can be used to implement algo's like:
+		- conversion of infix expreesion into its eq postfix and prefix
+		- evalution of postfix expression
+
+-------------------------------------------------------------------
+
++ expression: combination of operands and operators
+- there are three types of expression:
+	1. prefix	: +ab
+	2. infix	: a+b
+	3. postfix	: ab+
+	
+	
+	infix 	=> 	a * b / c * d + e / f - g * h
+	postfix	=>  ab* / c * d + e / f - g * h
+			=>  ab*c/ * d + e / f - g * h
+			=>	ab*c/d* + e / f - g * h
+			=>	ab*c/d* + ef/ - g * h
+			=>	ab*c/d* + ef/ - gh*
+			=> 	ab*c/d*ef/+ - gh*
+			=> [ ab*c/d*ef/+gh*- ]
+
+	=> [ -+*/*abcd/ef*gh ] 
+	
+	
+	
+	infix 	= [ a*b/c*d+e/f-g*h ]
+	postfix = [ ab*c/d*ef/+gh*- ]
+	prefix	= [ -+*/*abcd/ef*gh ]
+	
+	infix expression : a*b/c*d+e/f-g*h
+	postfix expression : ab*c/d*ef/+gh*-
+
+
+	infix 	= [ (a*b)*(c+d)/e*f-g*h ]
+	postfix	= [ ab*cd+*e/f*gh*- ]	
+
+
+	infix expression	: [ 4 + 5 * 8 / 9 * 7 + 3 * 8 ]
+	postfix expression	: [ 458*9/7*+38*+ ]
+
+postfix expression : 4 5 8 * 9 / 7 * + 3 8 * +
+
+
+	infix expression: 100 + 25 / 30 * 60 + 125
+
+char *infix[] = { "100", "+", "25", "/", "30", "*", "60", "+", 
+					"125", NULL};
+					
+char *postfix[] = { "100", "25", "30", "/", "60", "*", "+", "125",
+					"+", NULL };
+					
+==============================================================
++ STL: Standard Template Library: it is a library of C++ template classes, which are the classes of most frequently used programming
+data structures.
+
+- STL has four components:
+  1. container classes: classes of most frequently used programming
+  data structures like vector, list, stack, queue, deque, priority queue
+  etc....
+  
+  2. algorithm: contains functions which can be used to perform
+  operations on contents of the container, like searching, sorting
+  get_max(), get_min() etc...
+ 
+  3. iterator: it is a class whose object can be treated as a pointer
+  for traversal of contents of the container classes.
+  
+  4. functors/function object: STL also contains such a classes in which
+  function call operator is overloaded, and object of such classes
+  is reffered as "function object"/"functors".
+  
+  
+  void fun(void)
+  {
+  	//statement/s
+  }
+  
+  fun();
+ - to give call to any function min two things are required:
+ 1. function name:
+ 2. function call operator: ()
+=====================================================================
++ graph: it is an advanced non-linear data structure which is a collection of logically related similar and disimilar type of elements
+which contains:
+- set of finite no. of elements reffered as "vertices" also called as
+nodes, and
+- set of finite no. of ordered/unordered pairs of vertices reffered
+as an "edges" also called as an "arcs", whereas edges may carry
+weight/cost/value and (cost may -ve).
+e.g. G(V,E)
+	V={0,1,2,3,4}
+	E={(0,1), (0,2), (0,3), (1,2), (1,4), (2,3), (3,4) }	 
+
+- ordered pair of vertices	: (u,v) != (v,u) --> directed edge
+- unordered pair of vertices: (u,v) == (v,u) --> undirected edge
+- graph which contains unordered pairs of vertices i.e. undirected edges
+is reffered as "undirected graph".
+- graph which contains ordered pairs of vertices i.e. directed edges
+is reffered as "directed graph" or "digraph".
+- if there is a direct edge between two vertices then those two vertices
+are reffered as an "adjancent" vertices, otherewise they are reffered as
+"non-adjacent" vertices.
+- if all the vertices in a graph are adjacent to each other then such a
+graph is reffered as "complete graph".
+- if path exists between two vertices then those two vertices are reffered as "connected" vertices otherwise they are reffered as "non-
+connected" vertices.
+- adjacent vertices are always connected whereas vice-versa is not true.
+- in a given graph if any vertex is connected with remaining all the
+vertices such a graph is called as "connected graph".
+- isolated vertex: vertex which is not connected with any other vertex
+in a graph then it is reffered as an "isolated" vertex.
+- in a given graph, in a path staring vertex and end vertex are same then such a path a is reffered as a "cycle".
+- graph which do not contains a cylcle is reffered as "tree".
+
+- "spanning tree": it is a subgraph of a graph can be formed by removing one or more edges from it in such a way that it should remains connected and do not contains a cycle.
+   
+- spanning tree must contains min (V-1) no. of edges, whereas V = no.
+of vertices in a graph.
+
+- graph representation methods:
+1. adjacency matrix representation: 2-d array
+2. adjacency list representation: array of linked lists OR (vector of lists).
+
+
+
+
+
+
+
+vector<int> v1;
+	v1.push_back(10);
+	v1.push_back(20);
+
+vector<list<int>> gr;
+
+
+
+
+
+
++ dfs traversal:
+	step1: push the starting vertex into the stack and mark it
+	step2: pop the vertex from the stack and visit it
+	step3: push all its adjacent but unmarked vertices into the stack
+		   and mark them
+	step4: repeat step2 & step3 till stack not becomes empty.
+
+* graph algo:
+	- implementation of graph by using adjacency matrix representation
+	- implementation of graph by using adjacency list
+	representation
+	- dfs traversal
+	- bfs traversal
+	- to check connectedness
+	- to find path lenght of all the vertices from the given source
+	vertex.
+	 		
+
+
++ bfs traversal:
+	step1: push the starting vertex into the queue and mark it
+	step2: pop the vertex from the queue
+	step3: push all its adjacent but unmarked vertices into the queue
+		   and mark them
+		   path_len[v] = path_len[trav] + 1
+		   
+	step4: repeat step2 & step3 till stack not becomes empty.
+
+	- bfs spanning tree
+	- dfs spanning tree
+
+
+
+
+
+
+for( i = 1 ; i <= m ; i++ )
+{
+	//O(1) statement/s
+}
+
+-- O(m)
+
+for( i = 1 ; i <= n ; i++ )
+{
+	//O(1) statement/s
+}
+-- O(n)
+
+T = O(m) + O(n)
+for m == n
+T = O(n) + O(n)
+=> O(2n) => O(n)
+
+
+6 7 1 *
+2 8 2 *
+5 6 2 *
+0 1 4 *
+2 5 4 *
+6 8 6 !
+2 3 7 *
+7 8 7 !
+0 7 8 *
+1 2 8 !
+3 4 9 *
+4 5 10 !
+1 7 11 !
+3 5 14 !
+
+--------------------------
+
+
+i = left;
+j = right
+
+while ( i < j )
+{
+	while( i <= j && arr[i] <= arr[left] )
+		i++;
+		
+	while( arr[j] > arr[left] )
+		j--;
+		
+	if( i < j )
+		SWAP(arr[i], arr[j]);
+}
+
+//swap jth pos ele with pivot ele
+	SWAP(arr[j], arr[left]);
+
+//apply quick sort on left partition
+	quick_sort(arr, left, j-1);
+//apply quick sort on left partition
+	quick_sort(arr, j+1, right);
+
+}
+
+
+-------------------------------------------------------------------
++ tree: it is a non-linear advanced data structure which is a collection/list of logically related similar type of finite no. elements in which
+	- there is a specially designated element reffered as root element
+	or root node, and
+	- remaining all elements/nodes are connected to the root node in a
+	heirachical manner, whereas there is a parent-child relationship
+	exists between ele's.
+	
+* root node
+* parent node/father
+* child node/son
+* siblings/brothers: child nodes of same parent
+* grand father/grand parent
+* grand son/grand child
+* degree of a node: no. of child nodes of a node
+* degree of a tree: max degree of any node in a given tree
+* leaf node/terminal node/external node: node having degree 0
+OR node which is not having any child node
+* non-leaf node/non-terminal node/internal node: node having non zero degree OR node which is having any child node/s
+* ancestors: all the nodes which are in the path from the root node to
+that node
+* descendents: all the nodes which are accessible from that node
+* level of a node = level of its parent node + 1
+	if we assume level of root node = 0
+* level of a tree = max level of any node in a given tree
+* level of tree = depth of a tree
+ 
+
+* binary tree: it is a tree in which each node can have max two no. of
+child nodes i.e. each node can have either 0 OR 1 OR 2 no. of child nodes.
+- binary tree is a tree having three subsets:
+	1. root element
+	2. left subtree
+	3. right subtree
+
+* binary search tree: it is a binary tree in which left child is always
+smaller than its parent and right child is always greater than or equal
+to its parent.
+
+* for given output binary seearch tree:
+50 20 90 85 10 45 30 100 15 75 95 120 5 50
+- there are three tree traversal methods:
+PREORDER : 50  20  10  5   15  45  30  90  85  75  50  100 95  120 
+INORDER  : 5   10  15  20  30  45  50  50  75  85  90  95  100 120 
+POSTORDER: 5   15  10  30  45  20  50  75  85  95  120 100 90  50  
+
+
+DFS Traversal:
+step1: push root node into the stack
+step2: pop the node from the stack and visit it
+step3: if the cur node having right child push it into the stack
+step4: if the cur node having left child push it into the stack
+step5: repeat step2, step3 & step4 till stack not becomes empty
+
+DFS TRAVERSAL IS: 50  20  10  5   15  45  30  90  85  75  50  100 95  120 
+
+BFS TRAVERSAL IS: 50 20 90 10 45 85 100 5 15 30 75 95 120 50
+
+
+bool delete_node(int key)
+{
+	node *parent = NULL;
+	node *temp = search_node(key, &parent);
+	
+}
+
+
+
+
+height of a node = max( ht. of left subtree, ht. of right right sub tree) + 1.
+height of a tre  = max height of any node in a given tree
+
+
+
+
+
+
+
+
+# Hash Table: it is a non-linear advanced data structure which is a collection of logically related similar type of elements/records in which data elements gets stored in an "associative manner" i.e. in a "key-value pairs".
+
+# Hashing:
+- "Hashing": it is an improvement over "Direct Access Table" in which hash function can be used and the table is reffered as "Hash Table".
+  
+- "Hash Function": it is a function that converts a given big value/number into a small practical integer value which is reffered as "hash key"/"hash code" which is a mapped value can be used as an index in a hash table.
+ 
+- "Collision": Since a hash function gets us a small number for a big key, there is possibility that two keys result in same value. The situation where a newly inserted key maps to an already occupied slot in hash table is called collision and must be handled using some collision handling technique.
+
+- There are two collission handling techniques:
+1. Chaining/Seperate Chaining
+2. Open Addressing
+----------------------------------------------------------------------------
+1. Chainnig: 
+- The idea is to make each cell of hash table point to a linked list of records that have same hash function value. Chaining is simple, but requires additional memory outside the table.
+
+- Advantages:
+1. Simple to implement.
+2. Hash table never fills up, we can always add more elements to the chain.
+3. Less sensitive to the hash function or load factors.
+4. It is mostly used when it is unknown how many and how frequently
+keys may be inserted or deleted.
+
+- Disadvantages:
+1. Cache performance of chaining is not good as keys are stored using a linked list. Open addressing provides better cache performance as everything is stored in the same table.
+2. Wastage of Space (Some Parts of hash table are never used).
+3. If the chain becomes long, then search time can become O(n) in the worst case.
+4. Uses extra space for links.
+
+- Performance of Chaining:
+Performance of hashing can be evaluated under the assumption that each key is equally likely to be hashed to any slot of table (simple uniform hashing).
+	m = no. of slots in hash table
+	n = no. of keys to be inserted in hash table
+	LF i.e. Load Factor(α) = n/m. 
+	
+	Expected time to search = O(1 + α).
+	Expected time to insert/delete = O(1 + α)
+	Time complexity of search, insert and delete is O(1) if  α is O(1).
+------------------------------------------------------------------------
+2. Open Addressing:
+- In open addressing, all elements are stored in the hash table itself. Each table entry contains either a record or NIL. When searching for an element, we one by one examine table slots until the desired element is found or it is clear that the element is not in the table.
+
+- Open Addressing is done following ways:
+A. "Linear Probing":
+- In linear probing, we linearly probe/search for next slot. For example, typical gap between two probes is 1 as taken in below example also.
+- let hash(x) be the slot index computed using hash function and S be the table size
+	If slot hash(x) % S is full, then we try (hash(x) + 1) % S
+	If (hash(x) + 1) % S is also full, then we try (hash(x) + 2) % S
+	If (hash(x) + 2) % S is also full, then we try (hash(x) + 3) % S 
+	..................................................
+	..................................................
+	
+	
+- "Clustering": The main problem with linear probing is clustering, many consecutive elements form groups and it starts taking time to find a free slot or to search an element.
+  
+B. "Quadratic Probing":
+ - We look for i^2th slot in ith iteration.
+ - let hash(x) be the slot index computed using hash function.  
+	If slot hash(x) % S is full, then we try (hash(x) + 1*1) % S
+	If (hash(x) + 1*1) % S is also full, then we try (hash(x) + 2*2) % S
+	If (hash(x) + 2*2) % S is also full, then we try (hash(x) + 3*3) % S
+	..................................................
+	.................................................. 
+		
+		
+C. "Double Hashing":
+ - We use another hash function hash2(x) and look for i*hash2(x) slot in i’th rotation.
+ - let hash(x) be the slot index computed using hash function.  
+	If slot hash(x) % S is full, then we try (hash(x) + 1*hash2(x)) % S
+	If (hash(x) + 1*hash2(x)) % S is also full, then we try (hash(x) + 2*hash2(x)) % S
+	If (hash(x) + 2*hash2(x)) % S is also full, then we try (hash(x) + 3*hash2(x)) % S
+	..................................................
+	..................................................
+	
+	
+	
+* Performance of Open Addressing:
+- Like Chaining, the performance of hashing can be evaluated under the assumption that each key is equally likely to be hashed to any slot of the table (simple
+   uniform hashing).
+   	m = Number of slots in the hash table
+   	n = Number of keys to be inserted in the hash table
+   	then, L.F. i.e. Load factor (α) = n/m  ( < 1 )
+   	Expected time to search/insert/delete < 1/(1 - α) 
+   	So Search, Insert and Delete take (1/(1 - α)) time
+
+* Comparison between Chaining and Open Addressing:
+- Chaining is "simpler" to implement whereas open addressing requires more computation.
+- In Chaining, hash table never fills up, we can always add more elements into the chain, whereas in open addressing table may becomes full.
+- Chaining is less sensitive to the hash function or load factors, whereas open addressing requires extra care for to avoid clustering and load factor.
+- Chaining is mostly used when it is unknown how many and how frequently keys may be insereted and deleted, whereas open addressing is used when the frequency and number of keys is known.
+- Cache performance of chaining is not good as keys are stored using linked list, whereas open addressing provides better cache performance as everything is stored in the same table.
+- Wastage of Space (Some Parts of hash table in chaining are never used), whereas in open addressing, a slot can be used even if an input doesn’t map to it.
+- Chaining uses extra space for links, whereas no links in Open addressing 
+
+
+
+
+
+

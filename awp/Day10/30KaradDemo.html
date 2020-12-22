@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <!-- <script src="jquery-3.4.1.min.js"></script> -->
+    <script src="jquery-1.8.3.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            debugger;
+            $("#btnDynamic").live("click",function(){
+                var name = $($(this).parent().parent().children()[1]).html();
+                var city = $($(this).parent().parent().children()[2]).html();
+                var age = parseInt($($($(this).parent().parent().children()[3]).children()[0]).val());
+                alert("Hi " + name + " from " + city );
+                alert("Age is " + age);
+                debugger;
+            });
+
+            $("#btnRemove").live("click",function(){
+                $(this).parent().parent().remove();
+            });
+
+            debugger;
+            $("#btn").click(function(){
+                debugger;
+                $.ajax({
+                    url: "Data.json",
+                    contentType: "application/json",
+                    type: "GET",
+                    success: function (result){
+                        debugger;
+                        for(i=0;i<result.length; i ++)
+                        {
+                            $("#mytable").append( "<tr><td>" + 
+                                                    result[i].No + 
+                                                    "</td><td>" + 
+                                                    result[i].Name + 
+                                                    "</td><td>" + 
+                                                    result[i].City+ 
+                                                    "</td><td>" + 
+                                                    "<input type='text' id='txtAge'>" +
+                                                    "</td><td>" + 
+                                                    "<img style='height:50px; width:50px' src='" + result[i].Photo+ "'>"+
+                                                    "</td><td><input type='button' empName='ABC' id='btnDynamic' value='I am dynamic'>"+
+                                                    "</td><td>" + 
+                                                     "exit<input type='button' id='btnRemove' value='X'></td></tr>");
+                            //alert(result[i].Name );
+                        }
+                    },
+                    error: function (errDetails){
+                        debugger;
+                        alert(errDetails.responseText);
+                    }
+                });
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="Get Data">
+    <br>
+    <table id="mytable" border="1" style="width: 100%">
+            
+    </table>
+</body>
+</html>

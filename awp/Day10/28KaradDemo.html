@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn").click(function(){
+
+                //$("div[title='jalgaon']").css("background-color", "red");
+                //$("div[title^='n']").css("background-color", "red");
+                // $("div[title$='r']").css("background-color", "red");
+
+                //$("div[title*='r']").css("background-color", "red");
+//               $("div[title^='n']").filter("div[title$='r']").css("background-color", "red");
+                
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="btn" value="Click Me">
+    <div title="nagpur" style="height: 50px; width:100px; background-color: gold"></div><br>
+    <div title="karad" style="height: 50px; width:100px; background-color: gold"></div><br>
+    <div title="kolhapur" style="height: 50px; width:100px; background-color: gold"></div><br>
+    <div title="nagar" style="height: 50px; width:100px; background-color: gold"></div><br>
+    <div title="jalgaon" style="height: 50px; width:100px; background-color: gold"></div><br>
+    <div title="nane" style="height: 50px; width:100px; background-color: gold"></div><br>
+</body>
+</html>
